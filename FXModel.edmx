@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FXModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="FXModelStoreContainer">
+          <EntitySet Name="fxoder_event" EntityType="FXModel.Store.fxoder_event" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="fxorder" EntityType="FXModel.Store.fxorder" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="fxorder_ec" EntityType="FXModel.Store.fxorder_ec" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="fxorder_fx_hf_dat" EntityType="FXModel.Store.fxorder_fx_hf_dat" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="fxorder_fx_hf_dat2" EntityType="FXModel.Store.fxorder_fx_hf_dat2" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="fxorder_link" EntityType="FXModel.Store.fxorder_link" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="fxorder_linkedorder" EntityType="FXModel.Store.fxorder_linkedorder" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="fxorder_st" EntityType="FXModel.Store.fxorder_st" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_fxoder_event_fxorder_ec" Association="FXModel.Store.FK_fxoder_event_fxorder_ec">
+            <End Role="fxorder_ec" EntitySet="fxorder_ec" />
+            <End Role="fxoder_event" EntitySet="fxoder_event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fxoder_event_fxorder1" Association="FXModel.Store.FK_fxoder_event_fxorder1">
+            <End Role="fxorder" EntitySet="fxorder" />
+            <End Role="fxoder_event" EntitySet="fxoder_event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fxorder_fxorder_st1" Association="FXModel.Store.FK_fxorder_fxorder_st1">
+            <End Role="fxorder_st" EntitySet="fxorder_st" />
+            <End Role="fxorder" EntitySet="fxorder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fxorder_linkedorder_fxorder_link" Association="FXModel.Store.FK_fxorder_linkedorder_fxorder_link">
+            <End Role="fxorder_link" EntitySet="fxorder_link" />
+            <End Role="fxorder_linkedorder" EntitySet="fxorder_linkedorder" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="fxoder_event">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="timestamp" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="timestamp" Type="datetime" Nullable="false" />
+          <Property Name="timestamp2" Type="datetimeoffset" />
+          <Property Name="event_code" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="username" Type="nvarchar" MaxLength="24" />
+        </EntityType>
+        <EntityType Name="fxorder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="symbol" Type="nvarchar" MaxLength="32" />
+          <Property Name="customer" Type="nvarchar" MaxLength="25" />
+          <Property Name="bs" Type="nvarchar" MaxLength="4" />
+          <Property Name="ccy" Type="nvarchar" MaxLength="3" />
+          <Property Name="amount" Type="float" />
+          <Property Name="price" Type="float" />
+          <Property Name="bs2" Type="nvarchar" MaxLength="4" />
+          <Property Name="amount2" Type="float" />
+          <Property Name="flag" Type="nvarchar" MaxLength="12" />
+          <Property Name="live" Type="bit" />
+          <Property Name="fxcenter" Type="nvarchar" MaxLength="25" />
+          <Property Name="description" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="fxorder_ec">
+          <Key>
+            <PropertyRef Name="event_code" />
+          </Key>
+          <Property Name="event_code" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="event" Type="nvarchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="fxorder_fx_hf_dat">
+          <Key>
+            <PropertyRef Name="trade_date" />
+            <PropertyRef Name="symbol" />
+          </Key>
+          <Property Name="trade_date" Type="datetime" Nullable="false" />
+          <Property Name="symbol" Type="nvarchar" Nullable="false" MaxLength="6" />
+          <Property Name="bid" Type="float" />
+          <Property Name="ask" Type="float" />
+          <Property Name="price_src_id" Type="int" />
+        </EntityType>
+        <EntityType Name="fxorder_fx_hf_dat2">
+          <Key>
+            <PropertyRef Name="timestampUTC" />
+            <PropertyRef Name="symbol" />
+          </Key>
+          <Property Name="timestampUTC" Type="datetimeoffset" Nullable="false" />
+          <Property Name="symbol" Type="nvarchar" Nullable="false" MaxLength="6" />
+          <Property Name="bid" Type="float" />
+          <Property Name="ask" Type="float" />
+          <Property Name="price_src_id" Type="int" />
+        </EntityType>
+        <EntityType Name="fxorder_link">
+          <Key>
+            <PropertyRef Name="link_id" />
+          </Key>
+          <Property Name="link_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="link_type" Type="nvarchar" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="fxorder_linkedorder">
+          <Key>
+            <PropertyRef Name="link_id" />
+            <PropertyRef Name="fxorder_id" />
+          </Key>
+          <Property Name="link_id" Type="int" Nullable="false" />
+          <Property Name="fxorder_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fxorder_st">
+          <Key>
+            <PropertyRef Name="symbol" />
+          </Key>
+          <Property Name="symbol" Type="nvarchar" Nullable="false" MaxLength="32" />
+          <Property Name="description" Type="nvarchar" MaxLength="64" />
+          <Property Name="currency_base" Type="nvarchar" MaxLength="3" />
+          <Property Name="currency_unit" Type="nvarchar" MaxLength="3" />
+          <Property Name="against_usd" Type="bit" />
+          <Property Name="invers" Type="bit" />
+        </EntityType>
+        <Association Name="FK_fxoder_event_fxorder_ec">
+          <End Role="fxorder_ec" Type="FXModel.Store.fxorder_ec" Multiplicity="1" />
+          <End Role="fxoder_event" Type="FXModel.Store.fxoder_event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fxorder_ec">
+              <PropertyRef Name="event_code" />
+            </Principal>
+            <Dependent Role="fxoder_event">
+              <PropertyRef Name="event_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fxoder_event_fxorder1">
+          <End Role="fxorder" Type="FXModel.Store.fxorder" Multiplicity="1" />
+          <End Role="fxoder_event" Type="FXModel.Store.fxoder_event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fxorder">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fxoder_event">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fxorder_fxorder_st1">
+          <End Role="fxorder_st" Type="FXModel.Store.fxorder_st" Multiplicity="0..1" />
+          <End Role="fxorder" Type="FXModel.Store.fxorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fxorder_st">
+              <PropertyRef Name="symbol" />
+            </Principal>
+            <Dependent Role="fxorder">
+              <PropertyRef Name="symbol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fxorder_linkedorder_fxorder_link">
+          <End Role="fxorder_link" Type="FXModel.Store.fxorder_link" Multiplicity="1" />
+          <End Role="fxorder_linkedorder" Type="FXModel.Store.fxorder_linkedorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fxorder_link">
+              <PropertyRef Name="link_id" />
+            </Principal>
+            <Dependent Role="fxorder_linkedorder">
+              <PropertyRef Name="link_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FXModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="FXEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="fxoder_event" EntityType="FXModel.fxoder_event" />
+          <EntitySet Name="fxorders" EntityType="FXModel.fxorder" />
+          <EntitySet Name="fxorder_ec" EntityType="FXModel.fxorder_ec" />
+          <EntitySet Name="fxorder_fx_hf_dat" EntityType="FXModel.fxorder_fx_hf_dat" />
+          <EntitySet Name="fxorder_link" EntityType="FXModel.fxorder_link" />
+          <EntitySet Name="fxorder_linkedorder" EntityType="FXModel.fxorder_linkedorder" />
+          <EntitySet Name="fxorder_st" EntityType="FXModel.fxorder_st" />
+          <AssociationSet Name="FK_fxoder_event_fxorder_ec" Association="FXModel.FK_fxoder_event_fxorder_ec">
+            <End Role="fxorder_ec" EntitySet="fxorder_ec" />
+            <End Role="fxoder_event" EntitySet="fxoder_event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fxoder_event_fxorder1" Association="FXModel.FK_fxoder_event_fxorder1">
+            <End Role="fxorder" EntitySet="fxorders" />
+            <End Role="fxoder_event" EntitySet="fxoder_event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fxorder_fxorder_st1" Association="FXModel.FK_fxorder_fxorder_st1">
+            <End Role="fxorder_st" EntitySet="fxorder_st" />
+            <End Role="fxorder" EntitySet="fxorders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fxorder_linkedorder_fxorder_link" Association="FXModel.FK_fxorder_linkedorder_fxorder_link">
+            <End Role="fxorder_link" EntitySet="fxorder_link" />
+            <End Role="fxorder_linkedorder" EntitySet="fxorder_linkedorder" />
+          </AssociationSet>
+          <EntitySet Name="fxorder_fx_hf_dat2" EntityType="FXModel.fxorder_fx_hf_dat2" />
+        </EntityContainer>
+        <EntityType Name="fxoder_event">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="timestamp" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="timestamp" Type="DateTime" Nullable="false" />
+          <Property Name="event_code" Type="String" Nullable="false" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="username" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="fxorder_ec" Relationship="FXModel.FK_fxoder_event_fxorder_ec" FromRole="fxoder_event" ToRole="fxorder_ec" />
+          <NavigationProperty Name="fxorder" Relationship="FXModel.FK_fxoder_event_fxorder1" FromRole="fxoder_event" ToRole="fxorder" />
+          <Property Type="DateTimeOffset" Name="timestamp2" />
+        </EntityType>
+        <EntityType Name="fxorder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="symbol" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
+          <Property Name="customer" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="bs" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="ccy" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="amount" Type="Double" />
+          <Property Name="price" Type="Double" />
+          <Property Name="bs2" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="amount2" Type="Double" />
+          <Property Name="flag" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="live" Type="Boolean" />
+          <Property Name="fxcenter" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="fxoder_event" Relationship="FXModel.FK_fxoder_event_fxorder1" FromRole="fxorder" ToRole="fxoder_event" />
+          <NavigationProperty Name="fxorder_st" Relationship="FXModel.FK_fxorder_fxorder_st1" FromRole="fxorder" ToRole="fxorder_st" />
+        </EntityType>
+        <EntityType Name="fxorder_ec">
+          <Key>
+            <PropertyRef Name="event_code" />
+          </Key>
+          <Property Name="event_code" Type="String" Nullable="false" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="event" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="fxoder_event" Relationship="FXModel.FK_fxoder_event_fxorder_ec" FromRole="fxorder_ec" ToRole="fxoder_event" />
+        </EntityType>
+        <EntityType Name="fxorder_fx_hf_dat">
+          <Key>
+            <PropertyRef Name="trade_date" />
+            <PropertyRef Name="symbol" />
+          </Key>
+          <Property Name="trade_date" Type="DateTime" Nullable="false" />
+          <Property Name="symbol" Type="String" Nullable="false" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="bid" Type="Double" />
+          <Property Name="ask" Type="Double" />
+          <Property Name="price_src_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="fxorder_link">
+          <Key>
+            <PropertyRef Name="link_id" />
+          </Key>
+          <Property Name="link_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="link_type" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="fxorder_linkedorder" Relationship="FXModel.FK_fxorder_linkedorder_fxorder_link" FromRole="fxorder_link" ToRole="fxorder_linkedorder" />
+        </EntityType>
+        <EntityType Name="fxorder_linkedorder">
+          <Key>
+            <PropertyRef Name="link_id" />
+            <PropertyRef Name="fxorder_id" />
+          </Key>
+          <Property Name="link_id" Type="Int32" Nullable="false" />
+          <Property Name="fxorder_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="fxorder_link" Relationship="FXModel.FK_fxorder_linkedorder_fxorder_link" FromRole="fxorder_linkedorder" ToRole="fxorder_link" />
+        </EntityType>
+        <EntityType Name="fxorder_st">
+          <Key>
+            <PropertyRef Name="symbol" />
+          </Key>
+          <Property Name="symbol" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Name="currency_base" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="currency_unit" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="against_usd" Type="Boolean" />
+          <Property Name="invers" Type="Boolean" />
+          <NavigationProperty Name="fxorders" Relationship="FXModel.FK_fxorder_fxorder_st1" FromRole="fxorder_st" ToRole="fxorder" />
+        </EntityType>
+        <Association Name="FK_fxoder_event_fxorder_ec">
+          <End Role="fxorder_ec" Type="FXModel.fxorder_ec" Multiplicity="1" />
+          <End Role="fxoder_event" Type="FXModel.fxoder_event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fxorder_ec">
+              <PropertyRef Name="event_code" />
+            </Principal>
+            <Dependent Role="fxoder_event">
+              <PropertyRef Name="event_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fxoder_event_fxorder1">
+          <End Role="fxorder" Type="FXModel.fxorder" Multiplicity="1" />
+          <End Role="fxoder_event" Type="FXModel.fxoder_event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fxorder">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fxoder_event">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fxorder_fxorder_st1">
+          <End Role="fxorder_st" Type="FXModel.fxorder_st" Multiplicity="0..1" />
+          <End Role="fxorder" Type="FXModel.fxorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fxorder_st">
+              <PropertyRef Name="symbol" />
+            </Principal>
+            <Dependent Role="fxorder">
+              <PropertyRef Name="symbol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fxorder_linkedorder_fxorder_link">
+          <End Role="fxorder_link" Type="FXModel.fxorder_link" Multiplicity="1" />
+          <End Role="fxorder_linkedorder" Type="FXModel.fxorder_linkedorder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fxorder_link">
+              <PropertyRef Name="link_id" />
+            </Principal>
+            <Dependent Role="fxorder_linkedorder">
+              <PropertyRef Name="link_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="fxorder_fx_hf_dat2">
+          <Key>
+            <PropertyRef Name="timestampUTC" />
+            <PropertyRef Name="symbol" />
+          </Key>
+          <Property Type="DateTimeOffset" Name="timestampUTC" Nullable="false" />
+          <Property Type="String" Name="symbol" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="bid" />
+          <Property Type="Double" Name="ask" />
+          <Property Type="Int32" Name="price_src_id" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FXModelStoreContainer" CdmEntityContainer="FXEntities">
+          <EntitySetMapping Name="fxoder_event"><EntityTypeMapping TypeName="FXModel.fxoder_event"><MappingFragment StoreEntitySet="fxoder_event">
+            <ScalarProperty Name="timestamp2" ColumnName="timestamp2" />
+                <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+            <ScalarProperty Name="event_code" ColumnName="event_code" />
+            <ScalarProperty Name="username" ColumnName="username" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="fxorders"><EntityTypeMapping TypeName="FXModel.fxorder"><MappingFragment StoreEntitySet="fxorder">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="symbol" ColumnName="symbol" />
+            <ScalarProperty Name="customer" ColumnName="customer" />
+            <ScalarProperty Name="bs" ColumnName="bs" />
+            <ScalarProperty Name="ccy" ColumnName="ccy" />
+            <ScalarProperty Name="amount" ColumnName="amount" />
+            <ScalarProperty Name="price" ColumnName="price" />
+            <ScalarProperty Name="bs2" ColumnName="bs2" />
+            <ScalarProperty Name="amount2" ColumnName="amount2" />
+            <ScalarProperty Name="flag" ColumnName="flag" />
+            <ScalarProperty Name="live" ColumnName="live" />
+            <ScalarProperty Name="fxcenter" ColumnName="fxcenter" />
+            <ScalarProperty Name="description" ColumnName="description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="fxorder_ec"><EntityTypeMapping TypeName="FXModel.fxorder_ec"><MappingFragment StoreEntitySet="fxorder_ec">
+            <ScalarProperty Name="event_code" ColumnName="event_code" />
+            <ScalarProperty Name="event" ColumnName="event" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="fxorder_fx_hf_dat"><EntityTypeMapping TypeName="FXModel.fxorder_fx_hf_dat"><MappingFragment StoreEntitySet="fxorder_fx_hf_dat">
+            <ScalarProperty Name="trade_date" ColumnName="trade_date" />
+            <ScalarProperty Name="symbol" ColumnName="symbol" />
+            <ScalarProperty Name="bid" ColumnName="bid" />
+            <ScalarProperty Name="ask" ColumnName="ask" />
+            <ScalarProperty Name="price_src_id" ColumnName="price_src_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="fxorder_link"><EntityTypeMapping TypeName="FXModel.fxorder_link"><MappingFragment StoreEntitySet="fxorder_link">
+            <ScalarProperty Name="link_id" ColumnName="link_id" />
+            <ScalarProperty Name="link_type" ColumnName="link_type" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="fxorder_linkedorder"><EntityTypeMapping TypeName="FXModel.fxorder_linkedorder"><MappingFragment StoreEntitySet="fxorder_linkedorder">
+            <ScalarProperty Name="link_id" ColumnName="link_id" />
+            <ScalarProperty Name="fxorder_id" ColumnName="fxorder_id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="fxorder_st"><EntityTypeMapping TypeName="FXModel.fxorder_st"><MappingFragment StoreEntitySet="fxorder_st">
+            <ScalarProperty Name="symbol" ColumnName="symbol" />
+            <ScalarProperty Name="description" ColumnName="description" />
+            <ScalarProperty Name="currency_base" ColumnName="currency_base" />
+            <ScalarProperty Name="currency_unit" ColumnName="currency_unit" />
+            <ScalarProperty Name="against_usd" ColumnName="against_usd" />
+            <ScalarProperty Name="invers" ColumnName="invers" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="fxorder_fx_hf_dat2">
+            <EntityTypeMapping TypeName="FXModel.fxorder_fx_hf_dat2">
+              <MappingFragment StoreEntitySet="fxorder_fx_hf_dat2">
+                <ScalarProperty Name="price_src_id" ColumnName="price_src_id" />
+                <ScalarProperty Name="ask" ColumnName="ask" />
+                <ScalarProperty Name="bid" ColumnName="bid" />
+                <ScalarProperty Name="symbol" ColumnName="symbol" />
+                <ScalarProperty Name="timestampUTC" ColumnName="timestampUTC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="FXModel">
+        <EntityTypeShape EntityType="FXModel.fxoder_event" Width="1.5" PointX="5.375" PointY="1.375" Height="2.3648893229166661" IsExpanded="true" />
+        <EntityTypeShape EntityType="FXModel.fxorder" Width="1.5" PointX="3" PointY="1" Height="3.400126953125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FXModel.fxorder_ec" Width="1.5" PointX="3" PointY="6" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="FXModel.fxorder_fx_hf_dat" Width="2.5" PointX="7.5" PointY="0.625" Height="1.7566536458333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="FXModel.fxorder_link" Width="1.5" PointX="5.75" PointY="4.875" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="FXModel.fxorder_linkedorder" Width="2.25" PointX="8" PointY="4.875" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="FXModel.fxorder_st" Width="1.5" PointX="0.75" PointY="1.625" Height="2.0853483072916674" IsExpanded="true" />
+        <AssociationConnector Association="FXModel.FK_fxoder_event_fxorder_ec" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.06443359375" />
+          <ConnectorPoint PointX="5.53125" PointY="7.06443359375" />
+          <ConnectorPoint PointX="5.53125" PointY="3.7398893229166661" />
+        </AssociationConnector>
+        <AssociationConnector Association="FXModel.FK_fxoder_event_fxorder1" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.5574446614583328" />
+          <ConnectorPoint PointX="5.375" PointY="2.5574446614583328" />
+        </AssociationConnector>
+        <AssociationConnector Association="FXModel.FK_fxorder_fxorder_st1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.6676741536458337" />
+          <ConnectorPoint PointX="3" PointY="2.6676741536458337" />
+        </AssociationConnector>
+        <AssociationConnector Association="FXModel.FK_fxorder_linkedorder_fxorder_link" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.25" PointY="5.5889794921875" />
+          <ConnectorPoint PointX="8" PointY="5.5889794921875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="FXModel.fxorder_fx_hf_dat2" Width="2.875" PointX="10.375" PointY="0.625" Height="1.7566536458333317" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

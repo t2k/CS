@@ -1,0 +1,876 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ZDModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ZDModelStoreContainer">
+          <EntitySet Name="anserModelIFace" EntityType="ZDModel.Store.anserModelIFace" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="anserRMBSFlow" EntityType="ZDModel.Store.anserRMBSFlow" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="fx_arb" EntityType="ZDModel.Store.fx_arb" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mx_rloan_flow" EntityType="ZDModel.Store.mx_rloan_flow" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mxLP" EntityType="ZDModel.Store.mxLP" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mxLPLB" EntityType="ZDModel.Store.mxLPLB" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RATETimeStamp" EntityType="ZDModel.Store.RATETimeStamp" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SAPCML" EntityType="ZDModel.Store.SAPCML" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Security Master" EntityType="ZDModel.Store.Security Master" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SecurityFundingState" EntityType="ZDModel.Store.SecurityFundingState" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="zd_ccyterms" EntityType="ZDModel.Store.zd_ccyterms" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="zd_diary" EntityType="ZDModel.Store.zd_diary" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_anserRMBSFlow_anserModelIFace" Association="ZDModel.Store.FK_anserRMBSFlow_anserModelIFace">
+            <End Role="anserModelIFace" EntitySet="anserModelIFace" />
+            <End Role="anserRMBSFlow" EntitySet="anserRMBSFlow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mxLPLB_mxLP" Association="ZDModel.Store.FK_mxLPLB_mxLP">
+            <End Role="mxLP" EntitySet="mxLP" />
+            <End Role="mxLPLB" EntitySet="mxLPLB" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="anserModelIFace">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="evalDate" Type="datetime" />
+          <Property Name="version" Type="nvarchar" MaxLength="12" />
+          <Property Name="scenario" Type="nvarchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="anserRMBSFlow">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="iFaceID" Type="int" />
+          <Property Name="CUSIP" Type="nvarchar" MaxLength="12" />
+          <Property Name="OrigFace" Type="float" />
+          <Property Name="CurPar" Type="float" />
+          <Property Name="PmtDate" Type="datetime" />
+          <Property Name="Balance" Type="float" />
+          <Property Name="PPmt" Type="float" />
+          <Property Name="IPmt" Type="float" />
+          <Property Name="TPmt" Type="float" />
+          <Property Name="SPrin" Type="float" />
+          <Property Name="UPrin" Type="float" />
+        </EntityType>
+        <EntityType Name="fx_arb">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" MaxLength="36" />
+          <Property Name="symbol" Type="nvarchar" MaxLength="12" />
+          <Property Name="description" Type="nvarchar" MaxLength="140" />
+          <Property Name="holidayList" Type="nvarchar" MaxLength="50" />
+          <Property Name="fxswaps" Type="nvarchar" MaxLength="20" />
+          <Property Name="curve1" Type="nvarchar" MaxLength="20" />
+          <Property Name="curve2" Type="nvarchar" MaxLength="20" />
+          <Property Name="curve3" Type="nvarchar" MaxLength="20" />
+          <Property Name="curve4" Type="nvarchar" MaxLength="20" />
+          <Property Name="basis1" Type="int" />
+          <Property Name="basis2" Type="int" />
+          <Property Name="arbCCY" Type="nvarchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="mx_rloan_flow">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SaveDate" Type="datetime" />
+          <Property Name="TradeID" Type="int" />
+          <Property Name="PeriodStart" Type="datetime" />
+          <Property Name="PeriodEnd" Type="datetime" />
+          <Property Name="PayRec" Type="nvarchar" MaxLength="8" />
+          <Property Name="FixFloat" Type="nvarchar" MaxLength="8" />
+          <Property Name="Fixing" Type="float" />
+          <Property Name="Margin" Type="float" />
+          <Property Name="TotalRate" Type="float" />
+          <Property Name="Notional" Type="float" />
+          <Property Name="Internal" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreditIssuer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Index" Type="nvarchar" MaxLength="50" />
+          <Property Name="Start" Type="datetime" />
+          <Property Name="End" Type="datetime" />
+          <Property Name="Portfolio" Type="nvarchar" MaxLength="50" />
+          <Property Name="Counterpart" Type="nvarchar" MaxLength="50" />
+          <Property Name="CCY" Type="nvarchar" MaxLength="3" />
+          <Property Name="Flow" Type="float" />
+          <Property Name="Group" Type="nvarchar" MaxLength="25" />
+          <Property Name="TradeDate" Type="datetime" />
+          <Property Name="Status" Type="nvarchar" MaxLength="25" />
+          <Property Name="Fix_date" Type="datetime" />
+          <Property Name="Current_period" Type="nvarchar" MaxLength="1" />
+          <Property Name="EXT_NB" Type="nvarchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="mxLP">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="12" />
+          <Property Name="Savedate" Type="date" />
+          <Property Name="TimeStampUTC" Type="datetimeoffset" />
+          <Property Name="TradeID" Type="int" />
+          <Property Name="CCY" Type="nvarchar" MaxLength="3" />
+          <Property Name="Portfolio" Type="nvarchar" MaxLength="50" />
+          <Property Name="Counterparty" Type="nvarchar" MaxLength="50" />
+          <Property Name="ScheduleIndex" Type="nvarchar" MaxLength="25" />
+          <Property Name="LPType" Type="nvarchar" MaxLength="2" />
+          <Property Name="SAPCML" Type="nvarchar(max)" />
+          <Property Name="LS" Type="float" />
+          <Property Name="LPR" Type="float" />
+          <Property Name="ChangeOutstanding" Type="float" />
+          <Property Name="PVLossBenefit" Type="float" />
+          <Property Name="NewEndDate" Type="date" />
+          <Property Name="OldEndDate" Type="date" />
+          <Property Name="FlowCount" Type="int" />
+        </EntityType>
+        <EntityType Name="mxLPLB">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LPID" Type="int" />
+          <Property Name="PdStart" Type="date" />
+          <Property Name="PdEnd" Type="date" />
+          <Property Name="ChangeOutstanding" Type="float" />
+          <Property Name="LS" Type="float" />
+          <Property Name="LPR" Type="float" />
+          <Property Name="DiscountFactor" Type="float" />
+          <Property Name="LossBenefit" Type="float" />
+          <Property Name="PVLossBenefit" Type="float" />
+        </EntityType>
+        <EntityType Name="RATETimeStamp">
+          <Key>
+            <PropertyRef Name="SaveDate" />
+            <PropertyRef Name="TimeStamp" />
+          </Key>
+          <Property Name="SaveDate" Type="datetime" Nullable="false" />
+          <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="TimeStampUTC" Type="datetimeoffset" />
+        </EntityType>
+        <EntityType Name="SAPCML">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="savedate" Type="datetime" />
+          <Property Name="CompanyCode" Type="nvarchar" MaxLength="8" />
+          <Property Name="ContractNumber" Type="nvarchar" MaxLength="12" />
+          <Property Name="ProductType" Type="nvarchar" MaxLength="12" />
+          <Property Name="Partner" Type="nvarchar" MaxLength="8" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContractCurrency" Type="nvarchar" MaxLength="3" />
+          <Property Name="Balance" Type="float" />
+          <Property Name="ApprovedMargin" Type="float" />
+          <Property Name="RolloverType" Type="nvarchar" MaxLength="6" />
+          <Property Name="InterestAgreement" Type="nvarchar" MaxLength="6" />
+          <Property Name="StartTerm" Type="datetime" />
+          <Property Name="PeriodStart" Type="datetime" />
+          <Property Name="PeriodEnd" Type="datetime" />
+          <Property Name="FacilityEndDate" Type="datetime" />
+          <Property Name="Margin_text" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Security Master">
+          <Key>
+            <PropertyRef Name="CUSIP" />
+          </Key>
+          <Property Name="CUSIP" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Security" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="ISSUER" Type="nvarchar" MaxLength="30" />
+          <Property Name="INTEXDealName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Underwriter-Agent" Type="nvarchar" MaxLength="8" />
+          <Property Name="Listing" Type="nvarchar" MaxLength="10" />
+          <Property Name="TrusteeCode" Type="nvarchar" MaxLength="12" />
+          <Property Name="CMCode" Type="nvarchar" MaxLength="12" />
+          <Property Name="CDOCollTotal" Type="float" />
+          <Property Name="ReinvPeriod" Type="nvarchar" MaxLength="12" />
+          <Property Name="NonCall" Type="nvarchar" MaxLength="12" />
+          <Property Name="Settlement" Type="datetime" />
+          <Property Name="FinalMaturity" Type="datetime" />
+          <Property Name="WAL" Type="nvarchar" MaxLength="12" />
+          <Property Name="Wrap" Type="nvarchar" MaxLength="12" />
+          <Property Name="DiscountMargin" Type="float" />
+          <Property Name="IndexRate" Type="nvarchar" MaxLength="15" />
+          <Property Name="StructureNotes" Type="ntext" />
+          <Property Name="SecurityRatings" Type="nvarchar" MaxLength="30" />
+          <Property Name="SecurityRatingsMoody" Type="nvarchar" MaxLength="10" />
+          <Property Name="SecurityRatingsSP" Type="nvarchar" MaxLength="10" />
+          <Property Name="SecurityRatingsFitch" Type="nvarchar" MaxLength="10" />
+          <Property Name="SecurityHolding" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecurityNotes" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecurityAmortStatus" Type="bit" />
+          <Property Name="SecurityClass" Type="nvarchar" MaxLength="20" />
+          <Property Name="CDOType" Type="nvarchar" MaxLength="20" />
+          <Property Name="SecurityCollateral" Type="nvarchar" MaxLength="16" />
+          <Property Name="SecurityParentStructure" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecurityQuality" Type="nvarchar" MaxLength="4" />
+          <Property Name="SecurityStatus" Type="nvarchar" MaxLength="4" />
+          <Property Name="IntexCoverage" Type="bit" />
+          <Property Name="IntexPermission" Type="bit" />
+          <Property Name="IntexDate" Type="datetime" />
+          <Property Name="IntexBETRating" Type="nvarchar" MaxLength="6" />
+          <Property Name="DataLoc" Type="nvarchar" MaxLength="50" />
+          <Property Name="MIProvider" Type="nvarchar" MaxLength="50" />
+          <Property Name="Servicer" Type="nvarchar" MaxLength="50" />
+          <Property Name="PREPAY_RATE" Type="int" />
+          <Property Name="PREPAY_UNITS" Type="nvarchar" MaxLength="50" />
+          <Property Name="TICKER" Type="nvarchar" MaxLength="30" />
+          <Property Name="BBGMTK" Type="nvarchar" MaxLength="8" />
+          <Property Name="Dealname" Type="nvarchar" MaxLength="50" />
+          <Property Name="ABSEvalCurveKey" Type="nvarchar" MaxLength="25" />
+          <Property Name="RiskyBond" Type="bit" />
+        </EntityType>
+        <EntityType Name="SecurityFundingState">
+          <Key>
+            <PropertyRef Name="evalDate" />
+            <PropertyRef Name="CUSIP" />
+          </Key>
+          <Property Name="evalDate" Type="datetime" Nullable="false" />
+          <Property Name="CUSIP" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="marketValue" Type="float" />
+          <Property Name="curWritedown" Type="bit" />
+          <Property Name="fedDWPPEligible" Type="bit" />
+        </EntityType>
+        <EntityType Name="zd_ccyterms">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="3" />
+          <Property Name="Period" Type="nvarchar" MaxLength="6" />
+          <Property Name="RefIndex" Type="nvarchar" MaxLength="25" />
+          <Property Name="DCC" Type="nvarchar" MaxLength="25" />
+          <Property Name="FixingCalendar" Type="nvarchar(max)" />
+          <Property Name="ValueCalendar" Type="nvarchar(max)" />
+          <Property Name="ValueDay" Type="int" />
+          <Property Name="MaxTenor" Type="int" />
+        </EntityType>
+        <EntityType Name="zd_diary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="valueDate" Type="datetime" />
+          <Property Name="ccy" Type="nvarchar" MaxLength="3" />
+          <Property Name="amount" Type="float" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+          <Property Name="scheduled" Type="bit" />
+          <Property Name="basis" Type="nchar" MaxLength="10" />
+          <Property Name="department" Type="nvarchar" MaxLength="12" />
+          <Property Name="sapID" Type="int" />
+          <Property Name="userid" Type="nvarchar" MaxLength="12" />
+          <Property Name="live" Type="bit" />
+        </EntityType>
+        <Association Name="FK_anserRMBSFlow_anserModelIFace">
+          <End Role="anserModelIFace" Type="ZDModel.Store.anserModelIFace" Multiplicity="0..1" />
+          <End Role="anserRMBSFlow" Type="ZDModel.Store.anserRMBSFlow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="anserModelIFace">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="anserRMBSFlow">
+              <PropertyRef Name="iFaceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mxLPLB_mxLP">
+          <End Role="mxLP" Type="ZDModel.Store.mxLP" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="mxLPLB" Type="ZDModel.Store.mxLPLB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mxLP">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="mxLPLB">
+              <PropertyRef Name="LPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ZDModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ZDEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SecurityFundingStates" EntityType="ZDModel.SecurityFundingState" />
+          <EntitySet Name="anserModelIFaces" EntityType="ZDModel.anserModelIFace" />
+          <EntitySet Name="anserRMBSFlows" EntityType="ZDModel.anserRMBSFlow" />
+          <AssociationSet Name="FK_anserRMBSFlow_anserModelIFace" Association="ZDModel.FK_anserRMBSFlow_anserModelIFace">
+            <End Role="anserModelIFace" EntitySet="anserModelIFaces" />
+            <End Role="anserRMBSFlow" EntitySet="anserRMBSFlows" />
+          </AssociationSet>
+          <EntitySet Name="Securities" EntityType="ZDModel.cnSecurity" />
+          <EntitySet Name="mx_rloan_flow" EntityType="ZDModel.mx_rloan_flow" />
+          <EntitySet Name="SAPCMLs" EntityType="ZDModel.SAPCML" />
+          <EntitySet Name="mxLPs" EntityType="ZDModel.mxLP" />
+          <EntitySet Name="mxLPLBs" EntityType="ZDModel.mxLPLB" />
+          <AssociationSet Name="FK_mxLPLB_mxLP" Association="ZDModel.FK_mxLPLB_mxLP">
+            <End Role="mxLP" EntitySet="mxLPs" />
+            <End Role="mxLPLB" EntitySet="mxLPLBs" />
+          </AssociationSet>
+          <EntitySet Name="zd_ccyterms" EntityType="ZDModel.zd_ccyterms" />
+          <EntitySet Name="zd_diary" EntityType="ZDModel.zd_diary" />
+          <EntitySet Name="ratesaves" EntityType="ZDModel.ratesave" />
+          <EntitySet Name="zdShortModels" EntityType="ZDModel.zdShortModel" />
+        </EntityContainer>
+        <EntityType Name="SecurityFundingState">
+          <Key>
+            <PropertyRef Name="evalDate" />
+            <PropertyRef Name="CUSIP" />
+          </Key>
+          <Property Type="DateTime" Name="evalDate" Nullable="false" />
+          <Property Type="String" Name="CUSIP" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="marketValue" />
+          <Property Type="Boolean" Name="curWritedown" />
+          <Property Type="Boolean" Name="fedDWPPEligible" />
+        </EntityType>
+        <EntityType Name="anserModelIFace">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="DateTime" Name="evalDate" />
+          <Property Type="String" Name="version" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="scenario" MaxLength="12" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="anserRMBSFlows" Relationship="ZDModel.FK_anserRMBSFlow_anserModelIFace" FromRole="anserModelIFace" ToRole="anserRMBSFlow" />
+        </EntityType>
+        <EntityType Name="anserRMBSFlow">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="iFaceID" />
+          <Property Type="String" Name="CUSIP" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="OrigFace" />
+          <Property Type="Double" Name="CurPar" />
+          <Property Type="DateTime" Name="PmtDate" />
+          <Property Type="Double" Name="Balance" />
+          <Property Type="Double" Name="PPmt" />
+          <Property Type="Double" Name="IPmt" />
+          <Property Type="Double" Name="TPmt" />
+          <Property Type="Double" Name="SPrin" />
+          <Property Type="Double" Name="UPrin" />
+          <NavigationProperty Name="anserModelIFace" Relationship="ZDModel.FK_anserRMBSFlow_anserModelIFace" FromRole="anserRMBSFlow" ToRole="anserModelIFace" />
+        </EntityType>
+        <Association Name="FK_anserRMBSFlow_anserModelIFace">
+          <End Type="ZDModel.anserModelIFace" Role="anserModelIFace" Multiplicity="0..1" />
+          <End Type="ZDModel.anserRMBSFlow" Role="anserRMBSFlow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="anserModelIFace">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="anserRMBSFlow">
+              <PropertyRef Name="iFaceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="cnSecurity">
+          <Key>
+            <PropertyRef Name="CUSIP" />
+          </Key>
+          <Property Type="String" Name="CUSIP" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Security" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ISSUER" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="INTEXDealName" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Underwriter_Agent" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Listing" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TrusteeCode" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CMCode" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="CDOCollTotal" />
+          <Property Type="String" Name="ReinvPeriod" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NonCall" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Settlement" />
+          <Property Type="DateTime" Name="FinalMaturity" />
+          <Property Type="String" Name="WAL" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Wrap" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="DiscountMargin" />
+          <Property Type="String" Name="IndexRate" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StructureNotes" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityRatings" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityRatingsMoody" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityRatingsSP" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityRatingsFitch" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityHolding" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityNotes" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="SecurityAmortStatus" />
+          <Property Type="String" Name="SecurityClass" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CDOType" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityCollateral" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityParentStructure" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityQuality" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityStatus" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IntexCoverage" />
+          <Property Type="Boolean" Name="IntexPermission" />
+          <Property Type="DateTime" Name="IntexDate" />
+          <Property Type="String" Name="IntexBETRating" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DataLoc" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MIProvider" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Servicer" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PREPAY_RATE" />
+          <Property Type="String" Name="PREPAY_UNITS" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TICKER" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BBGMTK" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Dealname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ABSEvalCurveKey" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="RiskyBond" />
+        </EntityType>
+        <EntityType Name="mx_rloan_flow">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="SaveDate" />
+          <Property Type="Int32" Name="TradeID" />
+          <Property Type="DateTime" Name="PeriodStart" />
+          <Property Type="DateTime" Name="PeriodEnd" />
+          <Property Type="String" Name="PayRec" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FixFloat" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Fixing" />
+          <Property Type="Double" Name="Margin" />
+          <Property Type="Double" Name="TotalRate" />
+          <Property Type="Double" Name="Notional" />
+          <Property Type="String" Name="Internal" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreditIssuer" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Index" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Start" />
+          <Property Type="DateTime" Name="End" />
+          <Property Type="String" Name="Portfolio" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Counterpart" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CCY" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Flow" />
+          <Property Type="String" Name="Group" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TradeDate" />
+          <Property Type="String" Name="Status" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Fix_date" />
+          <Property Type="String" Name="Current_period" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EXT_NB" MaxLength="12" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SAPCML">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="savedate" />
+          <Property Type="String" Name="CompanyCode" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContractNumber" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProductType" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Partner" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContractCurrency" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Balance" />
+          <Property Type="Double" Name="ApprovedMargin" />
+          <Property Type="String" Name="RolloverType" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InterestAgreement" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartTerm" />
+          <Property Type="DateTime" Name="PeriodStart" />
+          <Property Type="DateTime" Name="PeriodEnd" />
+          <Property Type="DateTime" Name="FacilityEndDate" />
+          <Property Type="String" Name="Margin_text" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="mxLP">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserName" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Savedate" />
+          <Property Type="DateTimeOffset" Name="TimeStampUTC" />
+          <Property Type="Int32" Name="TradeID" />
+          <Property Type="String" Name="CCY" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Portfolio" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Counterparty" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ScheduleIndex" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LPType" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SAPCML" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="LS" />
+          <Property Type="Double" Name="LPR" />
+          <Property Type="Double" Name="ChangeOutstanding" />
+          <Property Type="Double" Name="PVLossBenefit" />
+          <Property Type="DateTime" Name="NewEndDate" />
+          <Property Type="DateTime" Name="OldEndDate" />
+          <Property Type="Int32" Name="FlowCount" />
+          <NavigationProperty Name="mxLPLBs" Relationship="ZDModel.FK_mxLPLB_mxLP" FromRole="mxLP" ToRole="mxLPLB" />
+        </EntityType>
+        <EntityType Name="mxLPLB">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="LPID" />
+          <Property Type="DateTime" Name="PdStart" />
+          <Property Type="DateTime" Name="PdEnd" />
+          <Property Type="Double" Name="ChangeOutstanding" />
+          <Property Type="Double" Name="LS" />
+          <Property Type="Double" Name="LPR" />
+          <Property Type="Double" Name="DiscountFactor" />
+          <Property Type="Double" Name="LossBenefit" />
+          <Property Type="Double" Name="PVLossBenefit" />
+          <NavigationProperty Name="mxLP" Relationship="ZDModel.FK_mxLPLB_mxLP" FromRole="mxLPLB" ToRole="mxLP" />
+        </EntityType>
+        <Association Name="FK_mxLPLB_mxLP">
+          <End Type="ZDModel.mxLP" Role="mxLP" Multiplicity="0..1" />
+          <End Type="ZDModel.mxLPLB" Role="mxLPLB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mxLP">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="mxLPLB">
+              <PropertyRef Name="LPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="zd_ccyterms">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Currency" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Period" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RefIndex" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DCC" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FixingCalendar" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ValueCalendar" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ValueDay" />
+          <Property Type="Int32" Name="MaxTenor" />
+        </EntityType>
+        <EntityType Name="zd_diary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="valueDate" />
+          <Property Type="String" Name="ccy" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="amount" />
+          <Property Type="String" Name="type" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="scheduled" />
+          <Property Type="String" Name="basis" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="department" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="sapID" />
+          <Property Type="String" Name="userid" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="live" />
+        </EntityType>
+        <EntityType Name="ratesave">
+          <Key>
+            <PropertyRef Name="SaveDate" />
+            <PropertyRef Name="TimeStamp" />
+          </Key>
+          <Property Type="DateTime" Name="SaveDate" Nullable="false" />
+          <Property Type="DateTime" Name="TimeStamp" Nullable="false" />
+          <Property Type="DateTimeOffset" Name="TimeStampUTC" />
+        </EntityType>
+        <EntityType Name="zdShortModel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="symbol" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="description" MaxLength="140" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="holidayList" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="fxswaps" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="curve1" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="curve2" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="curve3" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="curve4" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="basis1" />
+          <Property Type="Int32" Name="basis2" />
+          <Property Type="String" Name="arbCCY" MaxLength="3" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ZDModelStoreContainer" CdmEntityContainer="ZDEntities">
+          <EntitySetMapping Name="SecurityFundingStates">
+            <EntityTypeMapping TypeName="ZDModel.SecurityFundingState">
+              <MappingFragment StoreEntitySet="SecurityFundingState">
+                <ScalarProperty Name="fedDWPPEligible" ColumnName="fedDWPPEligible" />
+                <ScalarProperty Name="curWritedown" ColumnName="curWritedown" />
+                <ScalarProperty Name="marketValue" ColumnName="marketValue" />
+                <ScalarProperty Name="CUSIP" ColumnName="CUSIP" />
+                <ScalarProperty Name="evalDate" ColumnName="evalDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="anserModelIFaces">
+            <EntityTypeMapping TypeName="ZDModel.anserModelIFace">
+              <MappingFragment StoreEntitySet="anserModelIFace">
+                <ScalarProperty Name="scenario" ColumnName="scenario" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="evalDate" ColumnName="evalDate" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="anserRMBSFlows">
+            <EntityTypeMapping TypeName="ZDModel.anserRMBSFlow">
+              <MappingFragment StoreEntitySet="anserRMBSFlow">
+                <ScalarProperty Name="UPrin" ColumnName="UPrin" />
+                <ScalarProperty Name="SPrin" ColumnName="SPrin" />
+                <ScalarProperty Name="TPmt" ColumnName="TPmt" />
+                <ScalarProperty Name="IPmt" ColumnName="IPmt" />
+                <ScalarProperty Name="PPmt" ColumnName="PPmt" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="PmtDate" ColumnName="PmtDate" />
+                <ScalarProperty Name="CurPar" ColumnName="CurPar" />
+                <ScalarProperty Name="OrigFace" ColumnName="OrigFace" />
+                <ScalarProperty Name="CUSIP" ColumnName="CUSIP" />
+                <ScalarProperty Name="iFaceID" ColumnName="iFaceID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Securities">
+            <EntityTypeMapping TypeName="ZDModel.cnSecurity">
+              <MappingFragment StoreEntitySet="Security Master">
+                <ScalarProperty Name="RiskyBond" ColumnName="RiskyBond" />
+                <ScalarProperty Name="ABSEvalCurveKey" ColumnName="ABSEvalCurveKey" />
+                <ScalarProperty Name="Dealname" ColumnName="Dealname" />
+                <ScalarProperty Name="BBGMTK" ColumnName="BBGMTK" />
+                <ScalarProperty Name="TICKER" ColumnName="TICKER" />
+                <ScalarProperty Name="PREPAY_UNITS" ColumnName="PREPAY_UNITS" />
+                <ScalarProperty Name="PREPAY_RATE" ColumnName="PREPAY_RATE" />
+                <ScalarProperty Name="Servicer" ColumnName="Servicer" />
+                <ScalarProperty Name="MIProvider" ColumnName="MIProvider" />
+                <ScalarProperty Name="DataLoc" ColumnName="DataLoc" />
+                <ScalarProperty Name="IntexBETRating" ColumnName="IntexBETRating" />
+                <ScalarProperty Name="IntexDate" ColumnName="IntexDate" />
+                <ScalarProperty Name="IntexPermission" ColumnName="IntexPermission" />
+                <ScalarProperty Name="IntexCoverage" ColumnName="IntexCoverage" />
+                <ScalarProperty Name="SecurityStatus" ColumnName="SecurityStatus" />
+                <ScalarProperty Name="SecurityQuality" ColumnName="SecurityQuality" />
+                <ScalarProperty Name="SecurityParentStructure" ColumnName="SecurityParentStructure" />
+                <ScalarProperty Name="SecurityCollateral" ColumnName="SecurityCollateral" />
+                <ScalarProperty Name="CDOType" ColumnName="CDOType" />
+                <ScalarProperty Name="SecurityClass" ColumnName="SecurityClass" />
+                <ScalarProperty Name="SecurityAmortStatus" ColumnName="SecurityAmortStatus" />
+                <ScalarProperty Name="SecurityNotes" ColumnName="SecurityNotes" />
+                <ScalarProperty Name="SecurityHolding" ColumnName="SecurityHolding" />
+                <ScalarProperty Name="SecurityRatingsFitch" ColumnName="SecurityRatingsFitch" />
+                <ScalarProperty Name="SecurityRatingsSP" ColumnName="SecurityRatingsSP" />
+                <ScalarProperty Name="SecurityRatingsMoody" ColumnName="SecurityRatingsMoody" />
+                <ScalarProperty Name="SecurityRatings" ColumnName="SecurityRatings" />
+                <ScalarProperty Name="StructureNotes" ColumnName="StructureNotes" />
+                <ScalarProperty Name="IndexRate" ColumnName="IndexRate" />
+                <ScalarProperty Name="DiscountMargin" ColumnName="DiscountMargin" />
+                <ScalarProperty Name="Wrap" ColumnName="Wrap" />
+                <ScalarProperty Name="WAL" ColumnName="WAL" />
+                <ScalarProperty Name="FinalMaturity" ColumnName="FinalMaturity" />
+                <ScalarProperty Name="Settlement" ColumnName="Settlement" />
+                <ScalarProperty Name="NonCall" ColumnName="NonCall" />
+                <ScalarProperty Name="ReinvPeriod" ColumnName="ReinvPeriod" />
+                <ScalarProperty Name="CDOCollTotal" ColumnName="CDOCollTotal" />
+                <ScalarProperty Name="CMCode" ColumnName="CMCode" />
+                <ScalarProperty Name="TrusteeCode" ColumnName="TrusteeCode" />
+                <ScalarProperty Name="Listing" ColumnName="Listing" />
+                <ScalarProperty Name="Underwriter_Agent" ColumnName="Underwriter-Agent" />
+                <ScalarProperty Name="INTEXDealName" ColumnName="INTEXDealName" />
+                <ScalarProperty Name="ISSUER" ColumnName="ISSUER" />
+                <ScalarProperty Name="Security" ColumnName="Security" />
+                <ScalarProperty Name="CUSIP" ColumnName="CUSIP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mx_rloan_flow">
+            <EntityTypeMapping TypeName="ZDModel.mx_rloan_flow">
+              <MappingFragment StoreEntitySet="mx_rloan_flow">
+                <ScalarProperty Name="EXT_NB" ColumnName="EXT_NB" />
+                <ScalarProperty Name="Current_period" ColumnName="Current_period" />
+                <ScalarProperty Name="Fix_date" ColumnName="Fix_date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="Flow" ColumnName="Flow" />
+                <ScalarProperty Name="CCY" ColumnName="CCY" />
+                <ScalarProperty Name="Counterpart" ColumnName="Counterpart" />
+                <ScalarProperty Name="Portfolio" ColumnName="Portfolio" />
+                <ScalarProperty Name="End" ColumnName="End" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="Index" ColumnName="Index" />
+                <ScalarProperty Name="CreditIssuer" ColumnName="CreditIssuer" />
+                <ScalarProperty Name="Internal" ColumnName="Internal" />
+                <ScalarProperty Name="Notional" ColumnName="Notional" />
+                <ScalarProperty Name="TotalRate" ColumnName="TotalRate" />
+                <ScalarProperty Name="Margin" ColumnName="Margin" />
+                <ScalarProperty Name="Fixing" ColumnName="Fixing" />
+                <ScalarProperty Name="FixFloat" ColumnName="FixFloat" />
+                <ScalarProperty Name="PayRec" ColumnName="PayRec" />
+                <ScalarProperty Name="PeriodEnd" ColumnName="PeriodEnd" />
+                <ScalarProperty Name="PeriodStart" ColumnName="PeriodStart" />
+                <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+                <ScalarProperty Name="SaveDate" ColumnName="SaveDate" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAPCMLs">
+            <EntityTypeMapping TypeName="ZDModel.SAPCML">
+              <MappingFragment StoreEntitySet="SAPCML">
+                <ScalarProperty Name="Margin_text" ColumnName="Margin_text" />
+                <ScalarProperty Name="FacilityEndDate" ColumnName="FacilityEndDate" />
+                <ScalarProperty Name="PeriodEnd" ColumnName="PeriodEnd" />
+                <ScalarProperty Name="PeriodStart" ColumnName="PeriodStart" />
+                <ScalarProperty Name="StartTerm" ColumnName="StartTerm" />
+                <ScalarProperty Name="InterestAgreement" ColumnName="InterestAgreement" />
+                <ScalarProperty Name="RolloverType" ColumnName="RolloverType" />
+                <ScalarProperty Name="ApprovedMargin" ColumnName="ApprovedMargin" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="ContractCurrency" ColumnName="ContractCurrency" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Partner" ColumnName="Partner" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="ContractNumber" ColumnName="ContractNumber" />
+                <ScalarProperty Name="CompanyCode" ColumnName="CompanyCode" />
+                <ScalarProperty Name="savedate" ColumnName="savedate" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mxLPs">
+            <EntityTypeMapping TypeName="ZDModel.mxLP">
+              <MappingFragment StoreEntitySet="mxLP">
+                <ScalarProperty Name="FlowCount" ColumnName="FlowCount" />
+                <ScalarProperty Name="OldEndDate" ColumnName="OldEndDate" />
+                <ScalarProperty Name="NewEndDate" ColumnName="NewEndDate" />
+                <ScalarProperty Name="PVLossBenefit" ColumnName="PVLossBenefit" />
+                <ScalarProperty Name="ChangeOutstanding" ColumnName="ChangeOutstanding" />
+                <ScalarProperty Name="LPR" ColumnName="LPR" />
+                <ScalarProperty Name="LS" ColumnName="LS" />
+                <ScalarProperty Name="SAPCML" ColumnName="SAPCML" />
+                <ScalarProperty Name="LPType" ColumnName="LPType" />
+                <ScalarProperty Name="ScheduleIndex" ColumnName="ScheduleIndex" />
+                <ScalarProperty Name="Counterparty" ColumnName="Counterparty" />
+                <ScalarProperty Name="Portfolio" ColumnName="Portfolio" />
+                <ScalarProperty Name="CCY" ColumnName="CCY" />
+                <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+                <ScalarProperty Name="TimeStampUTC" ColumnName="TimeStampUTC" />
+                <ScalarProperty Name="Savedate" ColumnName="Savedate" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mxLPLBs">
+            <EntityTypeMapping TypeName="ZDModel.mxLPLB">
+              <MappingFragment StoreEntitySet="mxLPLB">
+                <ScalarProperty Name="PVLossBenefit" ColumnName="PVLossBenefit" />
+                <ScalarProperty Name="LossBenefit" ColumnName="LossBenefit" />
+                <ScalarProperty Name="DiscountFactor" ColumnName="DiscountFactor" />
+                <ScalarProperty Name="LPR" ColumnName="LPR" />
+                <ScalarProperty Name="LS" ColumnName="LS" />
+                <ScalarProperty Name="ChangeOutstanding" ColumnName="ChangeOutstanding" />
+                <ScalarProperty Name="PdEnd" ColumnName="PdEnd" />
+                <ScalarProperty Name="PdStart" ColumnName="PdStart" />
+                <ScalarProperty Name="LPID" ColumnName="LPID" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="zd_ccyterms">
+            <EntityTypeMapping TypeName="ZDModel.zd_ccyterms">
+              <MappingFragment StoreEntitySet="zd_ccyterms">
+                <ScalarProperty Name="MaxTenor" ColumnName="MaxTenor" />
+                <ScalarProperty Name="ValueDay" ColumnName="ValueDay" />
+                <ScalarProperty Name="ValueCalendar" ColumnName="ValueCalendar" />
+                <ScalarProperty Name="FixingCalendar" ColumnName="FixingCalendar" />
+                <ScalarProperty Name="DCC" ColumnName="DCC" />
+                <ScalarProperty Name="RefIndex" ColumnName="RefIndex" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="zd_diary">
+            <EntityTypeMapping TypeName="ZDModel.zd_diary">
+              <MappingFragment StoreEntitySet="zd_diary">
+                <ScalarProperty Name="live" ColumnName="live" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="sapID" ColumnName="sapID" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="basis" ColumnName="basis" />
+                <ScalarProperty Name="scheduled" ColumnName="scheduled" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="ccy" ColumnName="ccy" />
+                <ScalarProperty Name="valueDate" ColumnName="valueDate" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ratesaves">
+            <EntityTypeMapping TypeName="ZDModel.ratesave">
+              <MappingFragment StoreEntitySet="RATETimeStamp">
+                <ScalarProperty Name="TimeStampUTC" ColumnName="TimeStampUTC" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="SaveDate" ColumnName="SaveDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="zdShortModels">
+            <EntityTypeMapping TypeName="ZDModel.zdShortModel">
+              <MappingFragment StoreEntitySet="fx_arb">
+                <ScalarProperty Name="arbCCY" ColumnName="arbCCY" />
+                <ScalarProperty Name="basis2" ColumnName="basis2" />
+                <ScalarProperty Name="basis1" ColumnName="basis1" />
+                <ScalarProperty Name="curve4" ColumnName="curve4" />
+                <ScalarProperty Name="curve3" ColumnName="curve3" />
+                <ScalarProperty Name="curve2" ColumnName="curve2" />
+                <ScalarProperty Name="curve1" ColumnName="curve1" />
+                <ScalarProperty Name="fxswaps" ColumnName="fxswaps" />
+                <ScalarProperty Name="holidayList" ColumnName="holidayList" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="symbol" ColumnName="symbol" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ZDModel">
+        <EntityTypeShape EntityType="ZDModel.SecurityFundingState" Width="2.125" PointX="2.875" PointY="3" Height="1.7566536458333335" />
+        <EntityTypeShape EntityType="ZDModel.anserModelIFace" Width="2.125" PointX="2.875" PointY="0.5" Height="1.7566536458333335" />
+        <EntityTypeShape EntityType="ZDModel.anserRMBSFlow" Width="2.125" PointX="5.625" PointY="2.75" Height="3.0714322916666674" />
+        <AssociationConnector Association="ZDModel.FK_anserRMBSFlow_anserModelIFace" >
+          <ConnectorPoint PointX="5" PointY="1.3783268229166668" />
+          <ConnectorPoint PointX="6.6875" PointY="1.3783268229166668" />
+          <ConnectorPoint PointX="6.6875" PointY="2.75" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ZDModel.cnSecurity" Width="2.375" PointX="9.125" PointY="0.5" Height="9.67234375" />
+        <EntityTypeShape EntityType="ZDModel.mx_rloan_flow" Width="1.5" PointX="0.75" PointY="5.75" Height="5.2079475911458317" />
+        <EntityTypeShape EntityType="ZDModel.SAPCML" Width="1.5" PointX="2.75" PointY="5.75" Height="3.7288216145833317" />
+        <EntityTypeShape EntityType="ZDModel.mxLP" Width="1.5" PointX="5.375" PointY="10" Height="4.0575162760416674" />
+        <EntityTypeShape EntityType="ZDModel.mxLPLB" Width="1.5" PointX="7.625" PointY="10.625" Height="2.7427376302083353" />
+        <AssociationConnector Association="ZDModel.FK_mxLPLB_mxLP" >
+          <ConnectorPoint PointX="6.875" PointY="11.996368815104168" />
+          <ConnectorPoint PointX="7.625" PointY="11.996368815104168" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ZDModel.zd_ccyterms" Width="1.5" PointX="2.75" PointY="10.75" Height="2.4140429687499996" />
+        <EntityTypeShape EntityType="ZDModel.zd_diary" Width="1.5" PointX="10.375" PointY="9.75" Height="2.7427376302083317" />
+        <EntityTypeShape EntityType="ZDModel.ratesave" Width="1.5" PointX="6.125" PointY="7.125" Height="1.4279589843750031" />
+        <EntityTypeShape EntityType="ZDModel.zdShortModel" Width="1.5" PointX="12" PointY="2.875" Height="3.0714322916666674" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

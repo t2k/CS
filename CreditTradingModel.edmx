@@ -1,0 +1,2193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CreditTradingModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CreditTradingModelStoreContainer">
+          <EntitySet Name="CDOClass" EntityType="CreditTradingModel.Store.CDOClass" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Portfolio" EntityType="CreditTradingModel.Store.Portfolio" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioCorrelation" EntityType="CreditTradingModel.Store.PortfolioCorrelation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioLGD" EntityType="CreditTradingModel.Store.PortfolioLGD" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioList" EntityType="CreditTradingModel.Store.PortfolioList" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioLists" EntityType="CreditTradingModel.Store.PortfolioLists" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioSimBinHist" EntityType="CreditTradingModel.Store.PortfolioSimBinHist" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioSimResult" EntityType="CreditTradingModel.Store.PortfolioSimResult" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioSimulation" EntityType="CreditTradingModel.Store.PortfolioSimulation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioSimulationBins" EntityType="CreditTradingModel.Store.PortfolioSimulationBins" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioSimulationResult" EntityType="CreditTradingModel.Store.PortfolioSimulationResult" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioSubstitution" EntityType="CreditTradingModel.Store.PortfolioSubstitution" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioSubstitutionHeader" EntityType="CreditTradingModel.Store.PortfolioSubstitutionHeader" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioTrades" EntityType="CreditTradingModel.Store.PortfolioTrades" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioTranche" EntityType="CreditTradingModel.Store.PortfolioTranche" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioTrancheLossBins" EntityType="CreditTradingModel.Store.PortfolioTrancheLossBins" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioType" EntityType="CreditTradingModel.Store.PortfolioType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioWARF" EntityType="CreditTradingModel.Store.PortfolioWARF" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PortfolioWAS" EntityType="CreditTradingModel.Store.PortfolioWAS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Security Master" EntityType="CreditTradingModel.Store.Security Master" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TrancheTrade" EntityType="CreditTradingModel.Store.TrancheTrade" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TrancheTradeLossBins" EntityType="CreditTradingModel.Store.TrancheTradeLossBins" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TTList" EntityType="CreditTradingModel.Store.TTList" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TTPriceHist" EntityType="CreditTradingModel.Store.TTPriceHist" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TTRevalInput" EntityType="CreditTradingModel.Store.TTRevalInput" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_PortfolioLists_Portfolio" Association="CreditTradingModel.Store.FK_PortfolioLists_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolio" />
+            <End Role="PortfolioLists" EntitySet="PortfolioLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioLists_PortfolioList" Association="CreditTradingModel.Store.FK_PortfolioLists_PortfolioList">
+            <End Role="PortfolioList" EntitySet="PortfolioList" />
+            <End Role="PortfolioLists" EntitySet="PortfolioLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioLoss_Portfolio" Association="CreditTradingModel.Store.FK_PortfolioLoss_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolio" />
+            <End Role="PortfolioLGD" EntitySet="PortfolioLGD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioSimBinHist_Portfolio" Association="CreditTradingModel.Store.FK_PortfolioSimBinHist_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolio" />
+            <End Role="PortfolioSimBinHist" EntitySet="PortfolioSimBinHist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioSimResult_Portfolio" Association="CreditTradingModel.Store.FK_PortfolioSimResult_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolio" />
+            <End Role="PortfolioSimResult" EntitySet="PortfolioSimResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioSimulation_Portfolio" Association="CreditTradingModel.Store.FK_PortfolioSimulation_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolio" />
+            <End Role="PortfolioSimulation" EntitySet="PortfolioSimulation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioSimulationBins_PortfolioSimulation" Association="CreditTradingModel.Store.FK_PortfolioSimulationBins_PortfolioSimulation">
+            <End Role="PortfolioSimulation" EntitySet="PortfolioSimulation" />
+            <End Role="PortfolioSimulationBins" EntitySet="PortfolioSimulationBins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioSimulationResult_PortfolioSimulation" Association="CreditTradingModel.Store.FK_PortfolioSimulationResult_PortfolioSimulation">
+            <End Role="PortfolioSimulation" EntitySet="PortfolioSimulation" />
+            <End Role="PortfolioSimulationResult" EntitySet="PortfolioSimulationResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioSubstitution_Portfolio" Association="CreditTradingModel.Store.FK_PortfolioSubstitution_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolio" />
+            <End Role="PortfolioSubstitution" EntitySet="PortfolioSubstitution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioSubstitution_PortfolioSubstitutionHeader" Association="CreditTradingModel.Store.FK_PortfolioSubstitution_PortfolioSubstitutionHeader">
+            <End Role="PortfolioSubstitutionHeader" EntitySet="PortfolioSubstitutionHeader" />
+            <End Role="PortfolioSubstitution" EntitySet="PortfolioSubstitution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioTranche_Portfolio" Association="CreditTradingModel.Store.FK_PortfolioTranche_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolio" />
+            <End Role="PortfolioTranche" EntitySet="PortfolioTranche" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioTrancheLossBins_Portfolio" Association="CreditTradingModel.Store.FK_PortfolioTrancheLossBins_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolio" />
+            <End Role="PortfolioTrancheLossBins" EntitySet="PortfolioTrancheLossBins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioTrancheLossBins_PortfolioTranche" Association="CreditTradingModel.Store.FK_PortfolioTrancheLossBins_PortfolioTranche">
+            <End Role="PortfolioTranche" EntitySet="PortfolioTranche" />
+            <End Role="PortfolioTrancheLossBins" EntitySet="PortfolioTrancheLossBins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioWARF_Portfolio" Association="CreditTradingModel.Store.FK_PortfolioWARF_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolio" />
+            <End Role="PortfolioWARF" EntitySet="PortfolioWARF" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioWAS_Portfolio" Association="CreditTradingModel.Store.FK_PortfolioWAS_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolio" />
+            <End Role="PortfolioWAS" EntitySet="PortfolioWAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrancheTrade_Portfolio" Association="CreditTradingModel.Store.FK_TrancheTrade_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolio" />
+            <End Role="TrancheTrade" EntitySet="TrancheTrade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrancheTradeLossBins_TrancheTrade" Association="CreditTradingModel.Store.FK_TrancheTradeLossBins_TrancheTrade">
+            <End Role="TrancheTrade" EntitySet="TrancheTrade" />
+            <End Role="TrancheTradeLossBins" EntitySet="TrancheTradeLossBins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TTPriceHist_PortfolioSimulation" Association="CreditTradingModel.Store.FK_TTPriceHist_PortfolioSimulation">
+            <End Role="PortfolioSimulation" EntitySet="PortfolioSimulation" />
+            <End Role="TTPriceHist" EntitySet="TTPriceHist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TTRevalInput_TrancheTrade" Association="CreditTradingModel.Store.FK_TTRevalInput_TrancheTrade">
+            <End Role="TrancheTrade" EntitySet="TrancheTrade" />
+            <End Role="TTRevalInput" EntitySet="TTRevalInput" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TTRevalInput_TTList" Association="CreditTradingModel.Store.FK_TTRevalInput_TTList">
+            <End Role="TTList" EntitySet="TTList" />
+            <End Role="TTRevalInput" EntitySet="TTRevalInput" />
+          </AssociationSet>
+          <AssociationSet Name="PortfolioTrades_FK00" Association="CreditTradingModel.Store.PortfolioTrades_FK00">
+            <End Role="Portfolio" EntitySet="Portfolio" />
+            <End Role="PortfolioTrades" EntitySet="PortfolioTrades" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CDOClass">
+          <Key>
+            <PropertyRef Name="CDOClassCode" />
+          </Key>
+          <Property Name="CDOClassCode" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="CDOClassDescription" Type="nvarchar" MaxLength="50" />
+          <Property Name="CDOClassSort" Type="int" />
+        </EntityType>
+        <EntityType Name="Portfolio">
+          <Key>
+            <PropertyRef Name="Portfolio" />
+          </Key>
+          <Property Name="Portfolio" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="PortfolioDescription" Type="nvarchar" MaxLength="255" />
+          <Property Name="PortfolioType" Type="nvarchar" MaxLength="12" />
+          <Property Name="PortfolioClass" Type="nvarchar" MaxLength="4" />
+          <Property Name="PortfolioMgrStatus" Type="nvarchar" MaxLength="8" />
+          <Property Name="EffectiveDate" Type="datetime" />
+          <Property Name="ScheduledTermination" Type="datetime" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="3" />
+          <Property Name="Daycount" Type="nvarchar" MaxLength="8" />
+          <Property Name="Roll" Type="nvarchar" MaxLength="12" />
+          <Property Name="Calendar" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="PortfolioCorrelation">
+          <Key>
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="Portfolio" />
+            <PropertyRef Name="Maturity" />
+          </Key>
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Portfolio" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="Maturity" Type="datetime" Nullable="false" />
+          <Property Name="Point" Type="float" />
+          <Property Name="Correlation" Type="float" />
+        </EntityType>
+        <EntityType Name="PortfolioLGD">
+          <Key>
+            <PropertyRef Name="Portfolio" />
+            <PropertyRef Name="TICKER" />
+            <PropertyRef Name="CreditEventDate" />
+          </Key>
+          <Property Name="Portfolio" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="TICKER" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="CreditEventDate" Type="datetime" Nullable="false" />
+          <Property Name="CreditEventSettlement" Type="datetime" />
+          <Property Name="CreditEvent" Type="nvarchar" MaxLength="25" />
+          <Property Name="PortLGD" Type="float" />
+          <Property Name="PortRR" Type="float" />
+          <Property Name="PortfolioPct" Type="float" />
+          <Property Name="CreditEventID" Type="nchar" MaxLength="10" />
+          <Property Name="PortfolioLossNotes" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="PortfolioList">
+          <Key>
+            <PropertyRef Name="PortfolioList" />
+          </Key>
+          <Property Name="PortfolioList" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="Batchable" Type="bit" />
+          <Property Name="BatchDate" Type="datetime" />
+          <Property Name="IsDefault" Type="bit" />
+        </EntityType>
+        <EntityType Name="PortfolioLists">
+          <Key>
+            <PropertyRef Name="PortfolioList" />
+            <PropertyRef Name="Portfolio" />
+          </Key>
+          <Property Name="PortfolioList" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="Portfolio" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="PortfolioCorrelation" Type="float" />
+          <Property Name="PortfolioNumDraws" Type="int" />
+        </EntityType>
+        <EntityType Name="PortfolioSimBinHist">
+          <Key>
+            <PropertyRef Name="Portfolio" />
+            <PropertyRef Name="BinDate" />
+            <PropertyRef Name="BinType" />
+            <PropertyRef Name="BinOrdinal" />
+          </Key>
+          <Property Name="Portfolio" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="BinDate" Type="datetime" Nullable="false" />
+          <Property Name="BinType" Type="nvarchar" Nullable="false" MaxLength="1" />
+          <Property Name="BinOrdinal" Type="int" Nullable="false" />
+          <Property Name="BinX" Type="nvarchar" MaxLength="10" />
+          <Property Name="BinY" Type="float" />
+        </EntityType>
+        <EntityType Name="PortfolioSimResult">
+          <Key>
+            <PropertyRef Name="SimDate" />
+            <PropertyRef Name="Portfolio" />
+            <PropertyRef Name="Tranche" />
+          </Key>
+          <Property Name="SimDate" Type="datetime" Nullable="false" />
+          <Property Name="Portfolio" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="Tranche" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="PortCorrelationFactor" Type="float" />
+          <Property Name="PortMeanLoss" Type="float" />
+          <Property Name="PortStdDevLoss" Type="float" />
+          <Property Name="TrancheAttach" Type="float" />
+          <Property Name="TranchZScore" Type="float" />
+          <Property Name="PortSpread" Type="float" />
+          <Property Name="PortNotional" Type="float" />
+          <Property Name="PortTradeCount" Type="int" />
+          <Property Name="PortMaxLoss" Type="float" />
+          <Property Name="PortWARR" Type="float" />
+          <Property Name="WARRMin" Type="float" />
+          <Property Name="WARRMax" Type="float" />
+          <Property Name="TrancheWidth" Type="float" />
+          <Property Name="SimDuration" Type="nvarchar" MaxLength="50" />
+          <Property Name="SimCount" Type="float" />
+        </EntityType>
+        <EntityType Name="PortfolioSimulation">
+          <Key>
+            <PropertyRef Name="SimID" />
+          </Key>
+          <Property Name="SimID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Portfolio" Type="nvarchar" MaxLength="25" />
+          <Property Name="RevalDate" Type="datetime" />
+          <Property Name="SimulationDate" Type="datetime" />
+          <Property Name="Correlation" Type="float" />
+          <Property Name="Draws" Type="int" />
+          <Property Name="SimType" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="PortfolioSimulationBins">
+          <Key>
+            <PropertyRef Name="SimID" />
+            <PropertyRef Name="BinType" />
+            <PropertyRef Name="BinOrdinal" />
+          </Key>
+          <Property Name="SimID" Type="int" Nullable="false" />
+          <Property Name="BinType" Type="nvarchar" Nullable="false" MaxLength="1" />
+          <Property Name="BinOrdinal" Type="int" Nullable="false" />
+          <Property Name="BinX" Type="nvarchar" MaxLength="10" />
+          <Property Name="BinY" Type="float" />
+        </EntityType>
+        <EntityType Name="PortfolioSimulationResult">
+          <Key>
+            <PropertyRef Name="SimID" />
+            <PropertyRef Name="SimDate" />
+          </Key>
+          <Property Name="SimID" Type="int" Nullable="false" />
+          <Property Name="SimDate" Type="datetime" Nullable="false" />
+          <Property Name="Correlation" Type="float" />
+          <Property Name="ExpectedLoss" Type="float" />
+          <Property Name="StdDev" Type="float" />
+          <Property Name="TrancheAttach" Type="float" />
+          <Property Name="TranchZScore" Type="float" />
+          <Property Name="WAS" Type="float" />
+          <Property Name="PctWeight" Type="float" />
+          <Property Name="RECount" Type="int" />
+          <Property Name="MaxLoss" Type="float" />
+          <Property Name="WARR" Type="float" />
+          <Property Name="WARRMin" Type="float" />
+          <Property Name="WARRMax" Type="float" />
+          <Property Name="TrancheWidth" Type="float" />
+          <Property Name="SimDuration" Type="nvarchar" MaxLength="50" />
+          <Property Name="Draws" Type="int" />
+        </EntityType>
+        <EntityType Name="PortfolioSubstitution">
+          <Key>
+            <PropertyRef Name="PortSubID" />
+            <PropertyRef Name="SubDirection" />
+            <PropertyRef Name="Portfolio" />
+            <PropertyRef Name="NB" />
+          </Key>
+          <Property Name="PortSubID" Type="int" Nullable="false" />
+          <Property Name="SubDirection" Type="nvarchar" Nullable="false" MaxLength="3" />
+          <Property Name="Portfolio" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="NB" Type="int" Nullable="false" />
+          <Property Name="TICKER" Type="nvarchar" MaxLength="25" />
+          <Property Name="CCY" Type="nvarchar" MaxLength="3" />
+          <Property Name="SnrSub" Type="nvarchar" MaxLength="6" />
+          <Property Name="CounterParty" Type="nvarchar" MaxLength="50" />
+          <Property Name="NotionalAmount" Type="float" />
+          <Property Name="TradeDate" Type="datetime" />
+          <Property Name="MaturityDate" Type="datetime" />
+          <Property Name="ExpireDate" Type="datetime" />
+          <Property Name="DealRate" Type="float" />
+          <Property Name="PayRecv" Type="nvarchar" MaxLength="4" />
+          <Property Name="Trader" Type="nvarchar" MaxLength="15" />
+          <Property Name="TradeStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="MTMRate" Type="float" />
+          <Property Name="CreditCurveID" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpfrontPayment" Type="float" />
+          <Property Name="Recovery" Type="float" />
+          <Property Name="IsFixedRR" Type="bit" />
+          <Property Name="Completed" Type="bit" />
+        </EntityType>
+        <EntityType Name="PortfolioSubstitutionHeader">
+          <Key>
+            <PropertyRef Name="PortSubID" />
+          </Key>
+          <Property Name="PortSubID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PortSubDate" Type="datetime" />
+          <Property Name="PortSubDesc" Type="nvarchar" MaxLength="255" />
+          <Property Name="PortSubUser" Type="nvarchar" MaxLength="12" />
+          <Property Name="FirmCode" Type="nvarchar" MaxLength="12" />
+          <Property Name="PortSubSubordChange" Type="float" />
+          <Property Name="PortSubSpreadChange" Type="float" />
+          <Property Name="Completed" Type="bit" />
+          <Property Name="IsCreditEvent" Type="bit" />
+        </EntityType>
+        <EntityType Name="PortfolioTrades">
+          <Key>
+            <PropertyRef Name="Portfolio" />
+            <PropertyRef Name="NB" />
+          </Key>
+          <Property Name="Portfolio" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="NB" Type="int" Nullable="false" />
+          <Property Name="TICKER" Type="nvarchar" MaxLength="25" />
+          <Property Name="CCY" Type="nvarchar" MaxLength="3" />
+          <Property Name="SnrSub" Type="nvarchar" MaxLength="6" />
+          <Property Name="CounterParty" Type="nvarchar" MaxLength="50" />
+          <Property Name="NotionalAmount" Type="float" />
+          <Property Name="TradeDate" Type="datetime" />
+          <Property Name="MaturityDate" Type="datetime" />
+          <Property Name="ExpireDate" Type="datetime" />
+          <Property Name="DealRate" Type="float" />
+          <Property Name="PayRecv" Type="nvarchar" MaxLength="4" />
+          <Property Name="Trader" Type="nvarchar" MaxLength="15" />
+          <Property Name="TradeStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="MTMRate" Type="float" />
+          <Property Name="CreditCurveID" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpfrontPayment" Type="float" />
+          <Property Name="Recovery" Type="float" />
+          <Property Name="IsFixedRR" Type="bit" />
+        </EntityType>
+        <EntityType Name="PortfolioTranche">
+          <Key>
+            <PropertyRef Name="Portfolio" />
+            <PropertyRef Name="TrancheName" />
+          </Key>
+          <Property Name="Portfolio" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="TrancheName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="TrancheNotional" Type="float" />
+          <Property Name="TrancheAttachment" Type="float" />
+          <Property Name="TrancheWidth" Type="float" />
+          <Property Name="TrancheFee" Type="float" />
+          <Property Name="TranchePremium" Type="float" />
+          <Property Name="TrancheActive" Type="bit" />
+          <Property Name="TranchePremiumBasis" Type="nvarchar" MaxLength="6" />
+          <Property Name="TrancheMaturity" Type="datetime" />
+          <Property Name="TrancheRollPA" Type="int" />
+          <Property Name="TrancheCCY" Type="nvarchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="PortfolioTrancheLossBins">
+          <Key>
+            <PropertyRef Name="SimDate" />
+            <PropertyRef Name="Portfolio" />
+            <PropertyRef Name="TrancheName" />
+            <PropertyRef Name="ForwardDate" />
+          </Key>
+          <Property Name="SimDate" Type="datetime" Nullable="false" />
+          <Property Name="Portfolio" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="TrancheName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="ForwardDate" Type="datetime" Nullable="false" />
+          <Property Name="DiscountFactor" Type="float" />
+          <Property Name="CumulativeLoss" Type="float" />
+          <Property Name="MarginalLoss" Type="float" />
+        </EntityType>
+        <EntityType Name="PortfolioType">
+          <Key>
+            <PropertyRef Name="Portfolio Type" />
+          </Key>
+          <Property Name="Portfolio Type" Type="nvarchar" Nullable="false" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="PortfolioWARF">
+          <Key>
+            <PropertyRef Name="EvalDate" />
+            <PropertyRef Name="Portfolio" />
+            <PropertyRef Name="Agency" />
+          </Key>
+          <Property Name="EvalDate" Type="datetime" Nullable="false" />
+          <Property Name="Portfolio" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="Agency" Type="nvarchar" Nullable="false" MaxLength="5" />
+          <Property Name="WARF" Type="float" />
+        </EntityType>
+        <EntityType Name="PortfolioWAS">
+          <Key>
+            <PropertyRef Name="EvalDate" />
+            <PropertyRef Name="Portfolio" />
+          </Key>
+          <Property Name="EvalDate" Type="datetime" Nullable="false" />
+          <Property Name="Portfolio" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="WAS" Type="float" />
+        </EntityType>
+        <EntityType Name="Security Master">
+          <Key>
+            <PropertyRef Name="CUSIP" />
+          </Key>
+          <Property Name="CUSIP" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Security" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="ISSUER" Type="nvarchar" MaxLength="30" />
+          <Property Name="INTEXDealName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Underwriter-Agent" Type="nvarchar" MaxLength="8" />
+          <Property Name="Listing" Type="nvarchar" MaxLength="10" />
+          <Property Name="TrusteeCode" Type="nvarchar" MaxLength="12" />
+          <Property Name="CMCode" Type="nvarchar" MaxLength="12" />
+          <Property Name="CDOCollTotal" Type="float" />
+          <Property Name="ReinvPeriod" Type="nvarchar" MaxLength="12" />
+          <Property Name="NonCall" Type="nvarchar" MaxLength="12" />
+          <Property Name="Settlement" Type="datetime" />
+          <Property Name="FinalMaturity" Type="datetime" />
+          <Property Name="WAL" Type="nvarchar" MaxLength="12" />
+          <Property Name="Wrap" Type="nvarchar" MaxLength="12" />
+          <Property Name="DiscountMargin" Type="float" />
+          <Property Name="IndexRate" Type="nvarchar" MaxLength="15" />
+          <Property Name="StructureNotes" Type="ntext" />
+          <Property Name="SecurityRatings" Type="nvarchar" MaxLength="30" />
+          <Property Name="SecurityRatingsMoody" Type="nvarchar" MaxLength="10" />
+          <Property Name="SecurityRatingsSP" Type="nvarchar" MaxLength="10" />
+          <Property Name="SecurityRatingsFitch" Type="nvarchar" MaxLength="10" />
+          <Property Name="SecurityHolding" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecurityNotes" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecurityAmortStatus" Type="bit" />
+          <Property Name="SecurityClass" Type="nvarchar" MaxLength="20" />
+          <Property Name="CDOType" Type="nvarchar" MaxLength="20" />
+          <Property Name="SecurityCollateral" Type="nvarchar" MaxLength="16" />
+          <Property Name="SecurityParentStructure" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecurityQuality" Type="nvarchar" MaxLength="4" />
+          <Property Name="SecurityStatus" Type="nvarchar" MaxLength="4" />
+          <Property Name="IntexCoverage" Type="bit" />
+          <Property Name="IntexPermission" Type="bit" />
+          <Property Name="IntexDate" Type="datetime" />
+          <Property Name="IntexBETRating" Type="nvarchar" MaxLength="6" />
+          <Property Name="DataLoc" Type="nvarchar" MaxLength="50" />
+          <Property Name="MIProvider" Type="nvarchar" MaxLength="50" />
+          <Property Name="Servicer" Type="nvarchar" MaxLength="50" />
+          <Property Name="PREPAY_RATE" Type="int" />
+          <Property Name="PREPAY_UNITS" Type="nvarchar" MaxLength="50" />
+          <Property Name="TICKER" Type="nvarchar" MaxLength="30" />
+          <Property Name="BBGMTK" Type="nvarchar" MaxLength="8" />
+          <Property Name="Dealname" Type="nvarchar" MaxLength="50" />
+          <Property Name="ABSEvalCurveKey" Type="nvarchar" MaxLength="25" />
+          <Property Name="RiskyBond" Type="bit" />
+        </EntityType>
+        <EntityType Name="TrancheTrade">
+          <Key>
+            <PropertyRef Name="TTNo" />
+          </Key>
+          <Property Name="TTNo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Portfolio" Type="nvarchar" MaxLength="25" />
+          <Property Name="TrancheName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Notional" Type="float" />
+          <Property Name="TradeDate" Type="datetime" />
+          <Property Name="SettlementDate" Type="datetime" />
+          <Property Name="Maturity" Type="datetime" />
+          <Property Name="Attachment" Type="float" />
+          <Property Name="Width" Type="float" />
+          <Property Name="Premium" Type="float" />
+          <Property Name="PremBasis" Type="nvarchar" MaxLength="6" />
+          <Property Name="PremPmtPA" Type="int" />
+          <Property Name="Ratings" Type="nvarchar" MaxLength="12" />
+          <Property Name="Fee" Type="float" />
+          <Property Name="CCY" Type="nvarchar" MaxLength="3" />
+          <Property Name="IsFunded" Type="bit" />
+          <Property Name="SecurityID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Orig_Notional" Type="float" />
+          <Property Name="Orig_Attach" Type="float" />
+          <Property Name="Orig_Width" Type="float" />
+        </EntityType>
+        <EntityType Name="TrancheTradeLossBins">
+          <Key>
+            <PropertyRef Name="SimDate" />
+            <PropertyRef Name="TTNo" />
+            <PropertyRef Name="ForwardDate" />
+          </Key>
+          <Property Name="SimDate" Type="datetime" Nullable="false" />
+          <Property Name="TTNo" Type="int" Nullable="false" />
+          <Property Name="ForwardDate" Type="datetime" Nullable="false" />
+          <Property Name="DiscountFactor" Type="float" />
+          <Property Name="CumulativeLoss" Type="float" />
+          <Property Name="MarginalLoss" Type="float" />
+        </EntityType>
+        <EntityType Name="TTList">
+          <Key>
+            <PropertyRef Name="TTList" />
+          </Key>
+          <Property Name="TTList" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="IsDefault" Type="bit" />
+        </EntityType>
+        <EntityType Name="TTPriceHist">
+          <Key>
+            <PropertyRef Name="SimID" />
+          </Key>
+          <Property Name="SimID" Type="int" Nullable="false" />
+          <Property Name="TTNo" Type="int" />
+          <Property Name="Portfolio" Type="nvarchar" MaxLength="25" />
+          <Property Name="Notional" Type="float" />
+          <Property Name="Attach" Type="float" />
+          <Property Name="Width" Type="float" />
+          <Property Name="UpfrontFee" Type="float" />
+          <Property Name="Premium" Type="float" />
+          <Property Name="ParPremium" Type="float" />
+          <Property Name="Maturity" Type="datetime" />
+          <Property Name="CCY" Type="nvarchar" MaxLength="3" />
+          <Property Name="pWAS" Type="float" />
+          <Property Name="pCredits" Type="int" />
+          <Property Name="pCorrelation" Type="float" />
+          <Property Name="TranchePrice" Type="float" />
+          <Property Name="SimElapsed" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TTRevalInput">
+          <Key>
+            <PropertyRef Name="TTList" />
+            <PropertyRef Name="TTNo" />
+            <PropertyRef Name="RevalDate" />
+          </Key>
+          <Property Name="TTList" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="TTNo" Type="int" Nullable="false" />
+          <Property Name="RevalDate" Type="datetime" Nullable="false" />
+          <Property Name="Correlation" Type="float" />
+          <Property Name="Draws" Type="int" />
+        </EntityType>
+        <Association Name="FK_PortfolioLists_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Store.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioLists" Type="CreditTradingModel.Store.PortfolioLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="Portfolio" />
+            </Principal>
+            <Dependent Role="PortfolioLists">
+              <PropertyRef Name="Portfolio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioLists_PortfolioList">
+          <End Role="PortfolioList" Type="CreditTradingModel.Store.PortfolioList" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioLists" Type="CreditTradingModel.Store.PortfolioLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PortfolioList">
+              <PropertyRef Name="PortfolioList" />
+            </Principal>
+            <Dependent Role="PortfolioLists">
+              <PropertyRef Name="PortfolioList" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioLoss_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Store.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioLGD" Type="CreditTradingModel.Store.PortfolioLGD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="Portfolio" />
+            </Principal>
+            <Dependent Role="PortfolioLGD">
+              <PropertyRef Name="Portfolio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioSimBinHist_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Store.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioSimBinHist" Type="CreditTradingModel.Store.PortfolioSimBinHist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="Portfolio" />
+            </Principal>
+            <Dependent Role="PortfolioSimBinHist">
+              <PropertyRef Name="Portfolio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioSimResult_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Store.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioSimResult" Type="CreditTradingModel.Store.PortfolioSimResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="Portfolio" />
+            </Principal>
+            <Dependent Role="PortfolioSimResult">
+              <PropertyRef Name="Portfolio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioSimulation_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Store.Portfolio" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioSimulation" Type="CreditTradingModel.Store.PortfolioSimulation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="Portfolio" />
+            </Principal>
+            <Dependent Role="PortfolioSimulation">
+              <PropertyRef Name="Portfolio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioSimulationBins_PortfolioSimulation">
+          <End Role="PortfolioSimulation" Type="CreditTradingModel.Store.PortfolioSimulation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioSimulationBins" Type="CreditTradingModel.Store.PortfolioSimulationBins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PortfolioSimulation">
+              <PropertyRef Name="SimID" />
+            </Principal>
+            <Dependent Role="PortfolioSimulationBins">
+              <PropertyRef Name="SimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioSimulationResult_PortfolioSimulation">
+          <End Role="PortfolioSimulation" Type="CreditTradingModel.Store.PortfolioSimulation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioSimulationResult" Type="CreditTradingModel.Store.PortfolioSimulationResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PortfolioSimulation">
+              <PropertyRef Name="SimID" />
+            </Principal>
+            <Dependent Role="PortfolioSimulationResult">
+              <PropertyRef Name="SimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioSubstitution_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Store.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioSubstitution" Type="CreditTradingModel.Store.PortfolioSubstitution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="Portfolio" />
+            </Principal>
+            <Dependent Role="PortfolioSubstitution">
+              <PropertyRef Name="Portfolio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioSubstitution_PortfolioSubstitutionHeader">
+          <End Role="PortfolioSubstitutionHeader" Type="CreditTradingModel.Store.PortfolioSubstitutionHeader" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioSubstitution" Type="CreditTradingModel.Store.PortfolioSubstitution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PortfolioSubstitutionHeader">
+              <PropertyRef Name="PortSubID" />
+            </Principal>
+            <Dependent Role="PortfolioSubstitution">
+              <PropertyRef Name="PortSubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioTranche_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Store.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioTranche" Type="CreditTradingModel.Store.PortfolioTranche" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="Portfolio" />
+            </Principal>
+            <Dependent Role="PortfolioTranche">
+              <PropertyRef Name="Portfolio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioTrancheLossBins_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Store.Portfolio" Multiplicity="1" />
+          <End Role="PortfolioTrancheLossBins" Type="CreditTradingModel.Store.PortfolioTrancheLossBins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="Portfolio" />
+            </Principal>
+            <Dependent Role="PortfolioTrancheLossBins">
+              <PropertyRef Name="Portfolio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioTrancheLossBins_PortfolioTranche">
+          <End Role="PortfolioTranche" Type="CreditTradingModel.Store.PortfolioTranche" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioTrancheLossBins" Type="CreditTradingModel.Store.PortfolioTrancheLossBins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PortfolioTranche">
+              <PropertyRef Name="Portfolio" />
+              <PropertyRef Name="TrancheName" />
+            </Principal>
+            <Dependent Role="PortfolioTrancheLossBins">
+              <PropertyRef Name="Portfolio" />
+              <PropertyRef Name="TrancheName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioWARF_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Store.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioWARF" Type="CreditTradingModel.Store.PortfolioWARF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="Portfolio" />
+            </Principal>
+            <Dependent Role="PortfolioWARF">
+              <PropertyRef Name="Portfolio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioWAS_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Store.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioWAS" Type="CreditTradingModel.Store.PortfolioWAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="Portfolio" />
+            </Principal>
+            <Dependent Role="PortfolioWAS">
+              <PropertyRef Name="Portfolio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrancheTrade_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Store.Portfolio" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TrancheTrade" Type="CreditTradingModel.Store.TrancheTrade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="Portfolio" />
+            </Principal>
+            <Dependent Role="TrancheTrade">
+              <PropertyRef Name="Portfolio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrancheTradeLossBins_TrancheTrade">
+          <End Role="TrancheTrade" Type="CreditTradingModel.Store.TrancheTrade" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TrancheTradeLossBins" Type="CreditTradingModel.Store.TrancheTradeLossBins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrancheTrade">
+              <PropertyRef Name="TTNo" />
+            </Principal>
+            <Dependent Role="TrancheTradeLossBins">
+              <PropertyRef Name="TTNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TTPriceHist_PortfolioSimulation">
+          <End Role="PortfolioSimulation" Type="CreditTradingModel.Store.PortfolioSimulation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TTPriceHist" Type="CreditTradingModel.Store.TTPriceHist" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PortfolioSimulation">
+              <PropertyRef Name="SimID" />
+            </Principal>
+            <Dependent Role="TTPriceHist">
+              <PropertyRef Name="SimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TTRevalInput_TrancheTrade">
+          <End Role="TrancheTrade" Type="CreditTradingModel.Store.TrancheTrade" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TTRevalInput" Type="CreditTradingModel.Store.TTRevalInput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrancheTrade">
+              <PropertyRef Name="TTNo" />
+            </Principal>
+            <Dependent Role="TTRevalInput">
+              <PropertyRef Name="TTNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TTRevalInput_TTList">
+          <End Role="TTList" Type="CreditTradingModel.Store.TTList" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TTRevalInput" Type="CreditTradingModel.Store.TTRevalInput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TTList">
+              <PropertyRef Name="TTList" />
+            </Principal>
+            <Dependent Role="TTRevalInput">
+              <PropertyRef Name="TTList" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PortfolioTrades_FK00">
+          <End Role="Portfolio" Type="CreditTradingModel.Store.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioTrades" Type="CreditTradingModel.Store.PortfolioTrades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="Portfolio" />
+            </Principal>
+            <Dependent Role="PortfolioTrades">
+              <PropertyRef Name="Portfolio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CreditTradingModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CreditTradingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Portfolios" EntityType="CreditTradingModel.Portfolio" />
+          <EntitySet Name="PortfolioCorrelations" EntityType="CreditTradingModel.PortfolioCorrelation" />
+          <EntitySet Name="PortfolioLGDs" EntityType="CreditTradingModel.PortfolioLGD" />
+          <EntitySet Name="CreditUniverses" EntityType="CreditTradingModel.CreditUniverse" />
+          <EntitySet Name="CreditUniverseLists" EntityType="CreditTradingModel.CreditUniverseList" />
+          <EntitySet Name="PortfolioSimBinHists" EntityType="CreditTradingModel.PortfolioSimBinHist" />
+          <EntitySet Name="PortfolioSimResults" EntityType="CreditTradingModel.PortfolioSimResult" />
+          <EntitySet Name="PortfolioSimulations" EntityType="CreditTradingModel.PortfolioSimulation" />
+          <EntitySet Name="PortfolioSimulationBins" EntityType="CreditTradingModel.PortfolioSimulationBin" />
+          <EntitySet Name="PortfolioSimulationResults" EntityType="CreditTradingModel.PortfolioSimulationResult" />
+          <EntitySet Name="PortfolioSubstitutions" EntityType="CreditTradingModel.PortfolioSubstitution" />
+          <EntitySet Name="PortfolioSubstitutionHeaders" EntityType="CreditTradingModel.PortfolioSubstitutionHeader" />
+          <EntitySet Name="PortfolioTrades" EntityType="CreditTradingModel.PortfolioTrade" />
+          <EntitySet Name="PortfolioTranches" EntityType="CreditTradingModel.PortfolioTranche" />
+          <EntitySet Name="PortfolioTrancheLossBins" EntityType="CreditTradingModel.PortfolioTrancheLossBin" />
+          <EntitySet Name="PortfolioTypes" EntityType="CreditTradingModel.PortfolioType" />
+          <EntitySet Name="PortfolioWARves" EntityType="CreditTradingModel.PortfolioWARF" />
+          <EntitySet Name="PortfolioWAS" EntityType="CreditTradingModel.PortfolioWA" />
+          <EntitySet Name="TrancheTrades" EntityType="CreditTradingModel.TrancheTrade" />
+          <EntitySet Name="TrancheTradeLossBins" EntityType="CreditTradingModel.TrancheTradeLossBin" />
+          <EntitySet Name="TrancheTradeLists" EntityType="CreditTradingModel.TrancheTradeList" />
+          <EntitySet Name="TTPriceHists" EntityType="CreditTradingModel.TTPriceHist" />
+          <EntitySet Name="TTRevalInputs" EntityType="CreditTradingModel.TTRevalInput" />
+          <AssociationSet Name="FK_PortfolioLists_Portfolio" Association="CreditTradingModel.FK_PortfolioLists_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolios" />
+            <End Role="PortfolioLists" EntitySet="CreditUniverseLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioLoss_Portfolio" Association="CreditTradingModel.FK_PortfolioLoss_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolios" />
+            <End Role="PortfolioLGD" EntitySet="PortfolioLGDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioSimBinHist_Portfolio" Association="CreditTradingModel.FK_PortfolioSimBinHist_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolios" />
+            <End Role="PortfolioSimBinHist" EntitySet="PortfolioSimBinHists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioSimResult_Portfolio" Association="CreditTradingModel.FK_PortfolioSimResult_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolios" />
+            <End Role="PortfolioSimResult" EntitySet="PortfolioSimResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioSimulation_Portfolio" Association="CreditTradingModel.FK_PortfolioSimulation_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolios" />
+            <End Role="PortfolioSimulation" EntitySet="PortfolioSimulations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioSubstitution_Portfolio" Association="CreditTradingModel.FK_PortfolioSubstitution_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolios" />
+            <End Role="PortfolioSubstitution" EntitySet="PortfolioSubstitutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioTranche_Portfolio" Association="CreditTradingModel.FK_PortfolioTranche_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolios" />
+            <End Role="PortfolioTranche" EntitySet="PortfolioTranches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioTrancheLossBins_Portfolio" Association="CreditTradingModel.FK_PortfolioTrancheLossBins_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolios" />
+            <End Role="PortfolioTrancheLossBins" EntitySet="PortfolioTrancheLossBins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioWARF_Portfolio" Association="CreditTradingModel.FK_PortfolioWARF_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolios" />
+            <End Role="PortfolioWARF" EntitySet="PortfolioWARves" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioWAS_Portfolio" Association="CreditTradingModel.FK_PortfolioWAS_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolios" />
+            <End Role="PortfolioWAS" EntitySet="PortfolioWAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrancheTrade_Portfolio" Association="CreditTradingModel.FK_TrancheTrade_Portfolio">
+            <End Role="Portfolio" EntitySet="Portfolios" />
+            <End Role="TrancheTrade" EntitySet="TrancheTrades" />
+          </AssociationSet>
+          <AssociationSet Name="PortfolioTrades_FK00" Association="CreditTradingModel.PortfolioTrades_FK00">
+            <End Role="Portfolio" EntitySet="Portfolios" />
+            <End Role="PortfolioTrades" EntitySet="PortfolioTrades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioLists_PortfolioList" Association="CreditTradingModel.FK_PortfolioLists_PortfolioList">
+            <End Role="PortfolioList" EntitySet="CreditUniverses" />
+            <End Role="PortfolioLists" EntitySet="CreditUniverseLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioSimulationBins_PortfolioSimulation" Association="CreditTradingModel.FK_PortfolioSimulationBins_PortfolioSimulation">
+            <End Role="PortfolioSimulation" EntitySet="PortfolioSimulations" />
+            <End Role="PortfolioSimulationBins" EntitySet="PortfolioSimulationBins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioSimulationResult_PortfolioSimulation" Association="CreditTradingModel.FK_PortfolioSimulationResult_PortfolioSimulation">
+            <End Role="PortfolioSimulation" EntitySet="PortfolioSimulations" />
+            <End Role="PortfolioSimulationResult" EntitySet="PortfolioSimulationResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TTPriceHist_PortfolioSimulation" Association="CreditTradingModel.FK_TTPriceHist_PortfolioSimulation">
+            <End Role="PortfolioSimulation" EntitySet="PortfolioSimulations" />
+            <End Role="TTPriceHist" EntitySet="TTPriceHists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioSubstitution_PortfolioSubstitutionHeader" Association="CreditTradingModel.FK_PortfolioSubstitution_PortfolioSubstitutionHeader">
+            <End Role="PortfolioSubstitutionHeader" EntitySet="PortfolioSubstitutionHeaders" />
+            <End Role="PortfolioSubstitution" EntitySet="PortfolioSubstitutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PortfolioTrancheLossBins_PortfolioTranche" Association="CreditTradingModel.FK_PortfolioTrancheLossBins_PortfolioTranche">
+            <End Role="PortfolioTranche" EntitySet="PortfolioTranches" />
+            <End Role="PortfolioTrancheLossBins" EntitySet="PortfolioTrancheLossBins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrancheTradeLossBins_TrancheTrade" Association="CreditTradingModel.FK_TrancheTradeLossBins_TrancheTrade">
+            <End Role="TrancheTrade" EntitySet="TrancheTrades" />
+            <End Role="TrancheTradeLossBins" EntitySet="TrancheTradeLossBins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TTRevalInput_TrancheTrade" Association="CreditTradingModel.FK_TTRevalInput_TrancheTrade">
+            <End Role="TrancheTrade" EntitySet="TrancheTrades" />
+            <End Role="TTRevalInput" EntitySet="TTRevalInputs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TTRevalInput_TTList" Association="CreditTradingModel.FK_TTRevalInput_TTList">
+            <End Role="TTList" EntitySet="TrancheTradeLists" />
+            <End Role="TTRevalInput" EntitySet="TTRevalInputs" />
+          </AssociationSet>
+          <EntitySet Name="Security_Masters" EntityType="CreditTradingModel.Security_Master" />
+          <EntitySet Name="CDOClasses" EntityType="CreditTradingModel.CDOClass" />
+        </EntityContainer>
+        <EntityType Name="Portfolio">
+          <Key>
+            <PropertyRef Name="PortfolioName" />
+          </Key>
+          <Property Name="PortfolioName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="PortfolioDescription" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="PortfolioType" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="PortfolioClass" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="PortfolioMgrStatus" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+          <Property Name="EffectiveDate" Type="DateTime" />
+          <Property Name="ScheduledTermination" Type="DateTime" />
+          <Property Name="Currency" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="Daycount" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+          <Property Name="Roll" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="Calendar" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="PortfolioLists" Relationship="CreditTradingModel.FK_PortfolioLists_Portfolio" FromRole="Portfolio" ToRole="PortfolioLists" />
+          <NavigationProperty Name="PortfolioLGDs" Relationship="CreditTradingModel.FK_PortfolioLoss_Portfolio" FromRole="Portfolio" ToRole="PortfolioLGD" />
+          <NavigationProperty Name="PortfolioSimBinHists" Relationship="CreditTradingModel.FK_PortfolioSimBinHist_Portfolio" FromRole="Portfolio" ToRole="PortfolioSimBinHist" />
+          <NavigationProperty Name="PortfolioSimResults" Relationship="CreditTradingModel.FK_PortfolioSimResult_Portfolio" FromRole="Portfolio" ToRole="PortfolioSimResult" />
+          <NavigationProperty Name="PortfolioSimulations" Relationship="CreditTradingModel.FK_PortfolioSimulation_Portfolio" FromRole="Portfolio" ToRole="PortfolioSimulation" />
+          <NavigationProperty Name="PortfolioSubstitutions" Relationship="CreditTradingModel.FK_PortfolioSubstitution_Portfolio" FromRole="Portfolio" ToRole="PortfolioSubstitution" />
+          <NavigationProperty Name="PortfolioTranches" Relationship="CreditTradingModel.FK_PortfolioTranche_Portfolio" FromRole="Portfolio" ToRole="PortfolioTranche" />
+          <NavigationProperty Name="PortfolioTrancheLossBins" Relationship="CreditTradingModel.FK_PortfolioTrancheLossBins_Portfolio" FromRole="Portfolio" ToRole="PortfolioTrancheLossBins" />
+          <NavigationProperty Name="PortfolioWARves" Relationship="CreditTradingModel.FK_PortfolioWARF_Portfolio" FromRole="Portfolio" ToRole="PortfolioWARF" />
+          <NavigationProperty Name="PortfolioWAS" Relationship="CreditTradingModel.FK_PortfolioWAS_Portfolio" FromRole="Portfolio" ToRole="PortfolioWAS" />
+          <NavigationProperty Name="TrancheTrades" Relationship="CreditTradingModel.FK_TrancheTrade_Portfolio" FromRole="Portfolio" ToRole="TrancheTrade" />
+          <NavigationProperty Name="PortfolioTrades" Relationship="CreditTradingModel.PortfolioTrades_FK00" FromRole="Portfolio" ToRole="PortfolioTrades" />
+        </EntityType>
+        <EntityType Name="PortfolioCorrelation">
+          <Key>
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="Portfolio" />
+            <PropertyRef Name="Maturity" />
+          </Key>
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Portfolio" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="Maturity" Type="DateTime" Nullable="false" />
+          <Property Name="Point" Type="Double" />
+          <Property Name="Correlation" Type="Double" />
+        </EntityType>
+        <EntityType Name="PortfolioLGD">
+          <Key>
+            <PropertyRef Name="PortfolioName" />
+            <PropertyRef Name="TICKER" />
+            <PropertyRef Name="CreditEventDate" />
+          </Key>
+          <Property Name="PortfolioName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="TICKER" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="CreditEventDate" Type="DateTime" Nullable="false" />
+          <Property Name="CreditEventSettlement" Type="DateTime" />
+          <Property Name="CreditEvent" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="PortLGD" Type="Double" />
+          <Property Name="PortRR" Type="Double" />
+          <Property Name="PortfolioPct" Type="Double" />
+          <Property Name="CreditEventID" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="PortfolioLossNotes" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Portfolio1" Relationship="CreditTradingModel.FK_PortfolioLoss_Portfolio" FromRole="PortfolioLGD" ToRole="Portfolio" />
+        </EntityType>
+        <EntityType Name="CreditUniverse">
+          <Key>
+            <PropertyRef Name="CreditUniverseName" />
+          </Key>
+          <Property Name="CreditUniverseName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="Batchable" Type="Boolean" />
+          <Property Name="BatchDate" Type="DateTime" />
+          <Property Name="IsDefault" Type="Boolean" />
+          <NavigationProperty Name="PortfolioLists" Relationship="CreditTradingModel.FK_PortfolioLists_PortfolioList" FromRole="PortfolioList" ToRole="PortfolioLists" />
+        </EntityType>
+        <EntityType Name="CreditUniverseList">
+          <Key>
+            <PropertyRef Name="CreditUniverseName" />
+            <PropertyRef Name="PortfolioName" />
+          </Key>
+          <Property Name="CreditUniverseName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="PortfolioName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="PortfolioCorrelation" Type="Double" />
+          <Property Name="PortfolioNumDraws" Type="Int32" />
+          <NavigationProperty Name="Portfolio1" Relationship="CreditTradingModel.FK_PortfolioLists_Portfolio" FromRole="PortfolioLists" ToRole="Portfolio" />
+          <NavigationProperty Name="PortfolioList2" Relationship="CreditTradingModel.FK_PortfolioLists_PortfolioList" FromRole="PortfolioLists" ToRole="PortfolioList" />
+        </EntityType>
+        <EntityType Name="PortfolioSimBinHist">
+          <Key>
+            <PropertyRef Name="PortfolioName" />
+            <PropertyRef Name="BinDate" />
+            <PropertyRef Name="BinType" />
+            <PropertyRef Name="BinOrdinal" />
+          </Key>
+          <Property Name="PortfolioName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="BinDate" Type="DateTime" Nullable="false" />
+          <Property Name="BinType" Type="String" Nullable="false" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="BinOrdinal" Type="Int32" Nullable="false" />
+          <Property Name="BinX" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="BinY" Type="Double" />
+          <NavigationProperty Name="Portfolio1" Relationship="CreditTradingModel.FK_PortfolioSimBinHist_Portfolio" FromRole="PortfolioSimBinHist" ToRole="Portfolio" />
+        </EntityType>
+        <EntityType Name="PortfolioSimResult">
+          <Key>
+            <PropertyRef Name="SimDate" />
+            <PropertyRef Name="PortfolioName" />
+            <PropertyRef Name="Tranche" />
+          </Key>
+          <Property Name="SimDate" Type="DateTime" Nullable="false" />
+          <Property Name="PortfolioName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="Tranche" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="PortCorrelationFactor" Type="Double" />
+          <Property Name="PortMeanLoss" Type="Double" />
+          <Property Name="PortStdDevLoss" Type="Double" />
+          <Property Name="TrancheAttach" Type="Double" />
+          <Property Name="TranchZScore" Type="Double" />
+          <Property Name="PortSpread" Type="Double" />
+          <Property Name="PortNotional" Type="Double" />
+          <Property Name="PortTradeCount" Type="Int32" />
+          <Property Name="PortMaxLoss" Type="Double" />
+          <Property Name="PortWARR" Type="Double" />
+          <Property Name="WARRMin" Type="Double" />
+          <Property Name="WARRMax" Type="Double" />
+          <Property Name="TrancheWidth" Type="Double" />
+          <Property Name="SimDuration" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SimCount" Type="Double" />
+          <NavigationProperty Name="Portfolio1" Relationship="CreditTradingModel.FK_PortfolioSimResult_Portfolio" FromRole="PortfolioSimResult" ToRole="Portfolio" />
+        </EntityType>
+        <EntityType Name="PortfolioSimulation">
+          <Key>
+            <PropertyRef Name="SimID" />
+          </Key>
+          <Property Name="SimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PortfolioName" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="RevalDate" Type="DateTime" />
+          <Property Name="SimulationDate" Type="DateTime" />
+          <Property Name="Correlation" Type="Double" />
+          <Property Name="Draws" Type="Int32" />
+          <Property Name="SimType" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Portfolio1" Relationship="CreditTradingModel.FK_PortfolioSimulation_Portfolio" FromRole="PortfolioSimulation" ToRole="Portfolio" />
+          <NavigationProperty Name="PortfolioSimulationBins" Relationship="CreditTradingModel.FK_PortfolioSimulationBins_PortfolioSimulation" FromRole="PortfolioSimulation" ToRole="PortfolioSimulationBins" />
+          <NavigationProperty Name="PortfolioSimulationResults" Relationship="CreditTradingModel.FK_PortfolioSimulationResult_PortfolioSimulation" FromRole="PortfolioSimulation" ToRole="PortfolioSimulationResult" />
+          <NavigationProperty Name="TTPriceHist" Relationship="CreditTradingModel.FK_TTPriceHist_PortfolioSimulation" FromRole="PortfolioSimulation" ToRole="TTPriceHist" />
+        </EntityType>
+        <EntityType Name="PortfolioSimulationBin">
+          <Key>
+            <PropertyRef Name="SimID" />
+            <PropertyRef Name="BinType" />
+            <PropertyRef Name="BinOrdinal" />
+          </Key>
+          <Property Name="SimID" Type="Int32" Nullable="false" />
+          <Property Name="BinType" Type="String" Nullable="false" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="BinOrdinal" Type="Int32" Nullable="false" />
+          <Property Name="BinX" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="BinY" Type="Double" />
+          <NavigationProperty Name="PortfolioSimulation" Relationship="CreditTradingModel.FK_PortfolioSimulationBins_PortfolioSimulation" FromRole="PortfolioSimulationBins" ToRole="PortfolioSimulation" />
+        </EntityType>
+        <EntityType Name="PortfolioSimulationResult">
+          <Key>
+            <PropertyRef Name="SimID" />
+            <PropertyRef Name="SimDate" />
+          </Key>
+          <Property Name="SimID" Type="Int32" Nullable="false" />
+          <Property Name="SimDate" Type="DateTime" Nullable="false" />
+          <Property Name="Correlation" Type="Double" />
+          <Property Name="ExpectedLoss" Type="Double" />
+          <Property Name="StdDev" Type="Double" />
+          <Property Name="TrancheAttach" Type="Double" />
+          <Property Name="TranchZScore" Type="Double" />
+          <Property Name="WAS" Type="Double" />
+          <Property Name="PctWeight" Type="Double" />
+          <Property Name="RECount" Type="Int32" />
+          <Property Name="MaxLoss" Type="Double" />
+          <Property Name="WARR" Type="Double" />
+          <Property Name="WARRMin" Type="Double" />
+          <Property Name="WARRMax" Type="Double" />
+          <Property Name="TrancheWidth" Type="Double" />
+          <Property Name="SimDuration" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Draws" Type="Int32" />
+          <NavigationProperty Name="PortfolioSimulation" Relationship="CreditTradingModel.FK_PortfolioSimulationResult_PortfolioSimulation" FromRole="PortfolioSimulationResult" ToRole="PortfolioSimulation" />
+        </EntityType>
+        <EntityType Name="PortfolioSubstitution">
+          <Key>
+            <PropertyRef Name="PortSubID" />
+            <PropertyRef Name="SubDirection" />
+            <PropertyRef Name="PortfolioName" />
+            <PropertyRef Name="NB" />
+          </Key>
+          <Property Name="PortSubID" Type="Int32" Nullable="false" />
+          <Property Name="SubDirection" Type="String" Nullable="false" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="PortfolioName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="NB" Type="Int32" Nullable="false" />
+          <Property Name="TICKER" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="CCY" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="SnrSub" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="CounterParty" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NotionalAmount" Type="Double" />
+          <Property Name="TradeDate" Type="DateTime" />
+          <Property Name="MaturityDate" Type="DateTime" />
+          <Property Name="ExpireDate" Type="DateTime" />
+          <Property Name="DealRate" Type="Double" />
+          <Property Name="PayRecv" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="Trader" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="TradeStatus" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MTMRate" Type="Double" />
+          <Property Name="CreditCurveID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UpfrontPayment" Type="Double" />
+          <Property Name="Recovery" Type="Double" />
+          <Property Name="IsFixedRR" Type="Boolean" />
+          <Property Name="Completed" Type="Boolean" />
+          <NavigationProperty Name="Portfolio1" Relationship="CreditTradingModel.FK_PortfolioSubstitution_Portfolio" FromRole="PortfolioSubstitution" ToRole="Portfolio" />
+          <NavigationProperty Name="PortfolioSubstitutionHeader" Relationship="CreditTradingModel.FK_PortfolioSubstitution_PortfolioSubstitutionHeader" FromRole="PortfolioSubstitution" ToRole="PortfolioSubstitutionHeader" />
+        </EntityType>
+        <EntityType Name="PortfolioSubstitutionHeader">
+          <Key>
+            <PropertyRef Name="PortSubID" />
+          </Key>
+          <Property Name="PortSubID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PortSubDate" Type="DateTime" />
+          <Property Name="PortSubDesc" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="PortSubUser" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="FirmCode" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="PortSubSubordChange" Type="Double" />
+          <Property Name="PortSubSpreadChange" Type="Double" />
+          <Property Name="Completed" Type="Boolean" />
+          <Property Name="IsCreditEvent" Type="Boolean" />
+          <NavigationProperty Name="PortfolioSubstitutions" Relationship="CreditTradingModel.FK_PortfolioSubstitution_PortfolioSubstitutionHeader" FromRole="PortfolioSubstitutionHeader" ToRole="PortfolioSubstitution" />
+        </EntityType>
+        <EntityType Name="PortfolioTrade">
+          <Key>
+            <PropertyRef Name="PortfolioName" />
+            <PropertyRef Name="NB" />
+          </Key>
+          <Property Name="PortfolioName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="NB" Type="Int32" Nullable="false" />
+          <Property Name="TICKER" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="CCY" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="SnrSub" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="CounterParty" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NotionalAmount" Type="Double" />
+          <Property Name="TradeDate" Type="DateTime" />
+          <Property Name="MaturityDate" Type="DateTime" />
+          <Property Name="ExpireDate" Type="DateTime" />
+          <Property Name="DealRate" Type="Double" />
+          <Property Name="PayRecv" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="Trader" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="TradeStatus" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MTMRate" Type="Double" />
+          <Property Name="CreditCurveID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UpfrontPayment" Type="Double" />
+          <Property Name="Recovery" Type="Double" />
+          <Property Name="IsFixedRR" Type="Boolean" />
+          <NavigationProperty Name="Portfolio1" Relationship="CreditTradingModel.PortfolioTrades_FK00" FromRole="PortfolioTrades" ToRole="Portfolio" />
+        </EntityType>
+        <EntityType Name="PortfolioTranche">
+          <Key>
+            <PropertyRef Name="PortfolioName" />
+            <PropertyRef Name="TrancheName" />
+          </Key>
+          <Property Name="PortfolioName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="TrancheName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="TrancheNotional" Type="Double" />
+          <Property Name="TrancheAttachment" Type="Double" />
+          <Property Name="TrancheWidth" Type="Double" />
+          <Property Name="TrancheFee" Type="Double" />
+          <Property Name="TranchePremium" Type="Double" />
+          <Property Name="TrancheActive" Type="Boolean" />
+          <Property Name="TranchePremiumBasis" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="TrancheMaturity" Type="DateTime" />
+          <Property Name="TrancheRollPA" Type="Int32" />
+          <Property Name="TrancheCCY" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Portfolio1" Relationship="CreditTradingModel.FK_PortfolioTranche_Portfolio" FromRole="PortfolioTranche" ToRole="Portfolio" />
+          <NavigationProperty Name="PortfolioTrancheLossBins" Relationship="CreditTradingModel.FK_PortfolioTrancheLossBins_PortfolioTranche" FromRole="PortfolioTranche" ToRole="PortfolioTrancheLossBins" />
+        </EntityType>
+        <EntityType Name="PortfolioTrancheLossBin">
+          <Key>
+            <PropertyRef Name="SimDate" />
+            <PropertyRef Name="PortfolioName" />
+            <PropertyRef Name="TrancheName" />
+            <PropertyRef Name="ForwardDate" />
+          </Key>
+          <Property Name="SimDate" Type="DateTime" Nullable="false" />
+          <Property Name="PortfolioName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="TrancheName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="ForwardDate" Type="DateTime" Nullable="false" />
+          <Property Name="DiscountFactor" Type="Double" />
+          <Property Name="CumulativeLoss" Type="Double" />
+          <Property Name="MarginalLoss" Type="Double" />
+          <NavigationProperty Name="Portfolio1" Relationship="CreditTradingModel.FK_PortfolioTrancheLossBins_Portfolio" FromRole="PortfolioTrancheLossBins" ToRole="Portfolio" />
+          <NavigationProperty Name="PortfolioTranche" Relationship="CreditTradingModel.FK_PortfolioTrancheLossBins_PortfolioTranche" FromRole="PortfolioTrancheLossBins" ToRole="PortfolioTranche" />
+        </EntityType>
+        <EntityType Name="PortfolioType">
+          <Key>
+            <PropertyRef Name="Portfolio_Type" />
+          </Key>
+          <Property Name="Portfolio_Type" Type="String" Nullable="false" MaxLength="12" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="PortfolioWARF">
+          <Key>
+            <PropertyRef Name="EvalDate" />
+            <PropertyRef Name="PortfolioName" />
+            <PropertyRef Name="Agency" />
+          </Key>
+          <Property Name="EvalDate" Type="DateTime" Nullable="false" />
+          <Property Name="PortfolioName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="Agency" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="WARF" Type="Double" />
+          <NavigationProperty Name="Portfolio1" Relationship="CreditTradingModel.FK_PortfolioWARF_Portfolio" FromRole="PortfolioWARF" ToRole="Portfolio" />
+        </EntityType>
+        <EntityType Name="PortfolioWA">
+          <Key>
+            <PropertyRef Name="EvalDate" />
+            <PropertyRef Name="PortfolioName" />
+          </Key>
+          <Property Name="EvalDate" Type="DateTime" Nullable="false" />
+          <Property Name="PortfolioName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="WAS" Type="Double" />
+          <NavigationProperty Name="Portfolio1" Relationship="CreditTradingModel.FK_PortfolioWAS_Portfolio" FromRole="PortfolioWAS" ToRole="Portfolio" />
+        </EntityType>
+        <EntityType Name="TrancheTrade">
+          <Key>
+            <PropertyRef Name="TTNo" />
+          </Key>
+          <Property Name="TTNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PortfolioName" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="TrancheName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Notional" Type="Double" />
+          <Property Name="TradeDate" Type="DateTime" />
+          <Property Name="SettlementDate" Type="DateTime" />
+          <Property Name="Maturity" Type="DateTime" />
+          <Property Name="Attachment" Type="Double" />
+          <Property Name="Width" Type="Double" />
+          <Property Name="Premium" Type="Double" />
+          <Property Name="PremBasis" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="PremPmtPA" Type="Int32" />
+          <Property Name="Ratings" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="Fee" Type="Double" />
+          <Property Name="CCY" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="IsFunded" Type="Boolean" />
+          <Property Name="SecurityID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Orig_Notional" Type="Double" />
+          <Property Name="Orig_Attach" Type="Double" />
+          <Property Name="Orig_Width" Type="Double" />
+          <NavigationProperty Name="Portfolio1" Relationship="CreditTradingModel.FK_TrancheTrade_Portfolio" FromRole="TrancheTrade" ToRole="Portfolio" />
+          <NavigationProperty Name="TrancheTradeLossBins" Relationship="CreditTradingModel.FK_TrancheTradeLossBins_TrancheTrade" FromRole="TrancheTrade" ToRole="TrancheTradeLossBins" />
+          <NavigationProperty Name="TTRevalInputs" Relationship="CreditTradingModel.FK_TTRevalInput_TrancheTrade" FromRole="TrancheTrade" ToRole="TTRevalInput" />
+        </EntityType>
+        <EntityType Name="TrancheTradeLossBin">
+          <Key>
+            <PropertyRef Name="SimDate" />
+            <PropertyRef Name="TTNo" />
+            <PropertyRef Name="ForwardDate" />
+          </Key>
+          <Property Name="SimDate" Type="DateTime" Nullable="false" />
+          <Property Name="TTNo" Type="Int32" Nullable="false" />
+          <Property Name="ForwardDate" Type="DateTime" Nullable="false" />
+          <Property Name="DiscountFactor" Type="Double" />
+          <Property Name="CumulativeLoss" Type="Double" />
+          <Property Name="MarginalLoss" Type="Double" />
+          <NavigationProperty Name="TrancheTrade" Relationship="CreditTradingModel.FK_TrancheTradeLossBins_TrancheTrade" FromRole="TrancheTradeLossBins" ToRole="TrancheTrade" />
+        </EntityType>
+        <EntityType Name="TrancheTradeList">
+          <Key>
+            <PropertyRef Name="TTListName" />
+          </Key>
+          <Property Name="TTListName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="IsDefault" Type="Boolean" />
+          <NavigationProperty Name="TTRevalInputs" Relationship="CreditTradingModel.FK_TTRevalInput_TTList" FromRole="TTList" ToRole="TTRevalInput" />
+        </EntityType>
+        <EntityType Name="TTPriceHist">
+          <Key>
+            <PropertyRef Name="SimID" />
+          </Key>
+          <Property Name="SimID" Type="Int32" Nullable="false" />
+          <Property Name="TTNo" Type="Int32" />
+          <Property Name="Portfolio" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="Notional" Type="Double" />
+          <Property Name="Attach" Type="Double" />
+          <Property Name="Width" Type="Double" />
+          <Property Name="UpfrontFee" Type="Double" />
+          <Property Name="Premium" Type="Double" />
+          <Property Name="ParPremium" Type="Double" />
+          <Property Name="Maturity" Type="DateTime" />
+          <Property Name="CCY" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="pWAS" Type="Double" />
+          <Property Name="pCredits" Type="Int32" />
+          <Property Name="pCorrelation" Type="Double" />
+          <Property Name="TranchePrice" Type="Double" />
+          <Property Name="SimElapsed" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="PortfolioSimulation" Relationship="CreditTradingModel.FK_TTPriceHist_PortfolioSimulation" FromRole="TTPriceHist" ToRole="PortfolioSimulation" />
+        </EntityType>
+        <EntityType Name="TTRevalInput">
+          <Key>
+            <PropertyRef Name="TTListName" />
+            <PropertyRef Name="TTNo" />
+            <PropertyRef Name="RevalDate" />
+          </Key>
+          <Property Name="TTListName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="TTNo" Type="Int32" Nullable="false" />
+          <Property Name="RevalDate" Type="DateTime" Nullable="false" />
+          <Property Name="Correlation" Type="Double" />
+          <Property Name="Draws" Type="Int32" />
+          <NavigationProperty Name="TrancheTrade" Relationship="CreditTradingModel.FK_TTRevalInput_TrancheTrade" FromRole="TTRevalInput" ToRole="TrancheTrade" />
+          <NavigationProperty Name="TTList1" Relationship="CreditTradingModel.FK_TTRevalInput_TTList" FromRole="TTRevalInput" ToRole="TTList" />
+        </EntityType>
+        <Association Name="FK_PortfolioLists_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioLists" Type="CreditTradingModel.CreditUniverseList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="PortfolioName" />
+            </Principal>
+            <Dependent Role="PortfolioLists">
+              <PropertyRef Name="PortfolioName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioLoss_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioLGD" Type="CreditTradingModel.PortfolioLGD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="PortfolioName" />
+            </Principal>
+            <Dependent Role="PortfolioLGD">
+              <PropertyRef Name="PortfolioName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioSimBinHist_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioSimBinHist" Type="CreditTradingModel.PortfolioSimBinHist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="PortfolioName" />
+            </Principal>
+            <Dependent Role="PortfolioSimBinHist">
+              <PropertyRef Name="PortfolioName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioSimResult_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioSimResult" Type="CreditTradingModel.PortfolioSimResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="PortfolioName" />
+            </Principal>
+            <Dependent Role="PortfolioSimResult">
+              <PropertyRef Name="PortfolioName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioSimulation_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Portfolio" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioSimulation" Type="CreditTradingModel.PortfolioSimulation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="PortfolioName" />
+            </Principal>
+            <Dependent Role="PortfolioSimulation">
+              <PropertyRef Name="PortfolioName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioSubstitution_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioSubstitution" Type="CreditTradingModel.PortfolioSubstitution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="PortfolioName" />
+            </Principal>
+            <Dependent Role="PortfolioSubstitution">
+              <PropertyRef Name="PortfolioName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioTranche_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioTranche" Type="CreditTradingModel.PortfolioTranche" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="PortfolioName" />
+            </Principal>
+            <Dependent Role="PortfolioTranche">
+              <PropertyRef Name="PortfolioName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioTrancheLossBins_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Portfolio" Multiplicity="1" />
+          <End Role="PortfolioTrancheLossBins" Type="CreditTradingModel.PortfolioTrancheLossBin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="PortfolioName" />
+            </Principal>
+            <Dependent Role="PortfolioTrancheLossBins">
+              <PropertyRef Name="PortfolioName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioWARF_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioWARF" Type="CreditTradingModel.PortfolioWARF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="PortfolioName" />
+            </Principal>
+            <Dependent Role="PortfolioWARF">
+              <PropertyRef Name="PortfolioName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioWAS_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioWAS" Type="CreditTradingModel.PortfolioWA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="PortfolioName" />
+            </Principal>
+            <Dependent Role="PortfolioWAS">
+              <PropertyRef Name="PortfolioName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrancheTrade_Portfolio">
+          <End Role="Portfolio" Type="CreditTradingModel.Portfolio" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TrancheTrade" Type="CreditTradingModel.TrancheTrade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="PortfolioName" />
+            </Principal>
+            <Dependent Role="TrancheTrade">
+              <PropertyRef Name="PortfolioName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PortfolioTrades_FK00">
+          <End Role="Portfolio" Type="CreditTradingModel.Portfolio" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioTrades" Type="CreditTradingModel.PortfolioTrade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Portfolio">
+              <PropertyRef Name="PortfolioName" />
+            </Principal>
+            <Dependent Role="PortfolioTrades">
+              <PropertyRef Name="PortfolioName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioLists_PortfolioList">
+          <End Role="PortfolioList" Type="CreditTradingModel.CreditUniverse" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioLists" Type="CreditTradingModel.CreditUniverseList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PortfolioList">
+              <PropertyRef Name="CreditUniverseName" />
+            </Principal>
+            <Dependent Role="PortfolioLists">
+              <PropertyRef Name="CreditUniverseName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioSimulationBins_PortfolioSimulation">
+          <End Role="PortfolioSimulation" Type="CreditTradingModel.PortfolioSimulation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioSimulationBins" Type="CreditTradingModel.PortfolioSimulationBin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PortfolioSimulation">
+              <PropertyRef Name="SimID" />
+            </Principal>
+            <Dependent Role="PortfolioSimulationBins">
+              <PropertyRef Name="SimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioSimulationResult_PortfolioSimulation">
+          <End Role="PortfolioSimulation" Type="CreditTradingModel.PortfolioSimulation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioSimulationResult" Type="CreditTradingModel.PortfolioSimulationResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PortfolioSimulation">
+              <PropertyRef Name="SimID" />
+            </Principal>
+            <Dependent Role="PortfolioSimulationResult">
+              <PropertyRef Name="SimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TTPriceHist_PortfolioSimulation">
+          <End Role="PortfolioSimulation" Type="CreditTradingModel.PortfolioSimulation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TTPriceHist" Type="CreditTradingModel.TTPriceHist" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PortfolioSimulation">
+              <PropertyRef Name="SimID" />
+            </Principal>
+            <Dependent Role="TTPriceHist">
+              <PropertyRef Name="SimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioSubstitution_PortfolioSubstitutionHeader">
+          <End Role="PortfolioSubstitutionHeader" Type="CreditTradingModel.PortfolioSubstitutionHeader" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioSubstitution" Type="CreditTradingModel.PortfolioSubstitution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PortfolioSubstitutionHeader">
+              <PropertyRef Name="PortSubID" />
+            </Principal>
+            <Dependent Role="PortfolioSubstitution">
+              <PropertyRef Name="PortSubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PortfolioTrancheLossBins_PortfolioTranche">
+          <End Role="PortfolioTranche" Type="CreditTradingModel.PortfolioTranche" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PortfolioTrancheLossBins" Type="CreditTradingModel.PortfolioTrancheLossBin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PortfolioTranche">
+              <PropertyRef Name="PortfolioName" />
+              <PropertyRef Name="TrancheName" />
+            </Principal>
+            <Dependent Role="PortfolioTrancheLossBins">
+              <PropertyRef Name="PortfolioName" />
+              <PropertyRef Name="TrancheName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrancheTradeLossBins_TrancheTrade">
+          <End Role="TrancheTrade" Type="CreditTradingModel.TrancheTrade" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TrancheTradeLossBins" Type="CreditTradingModel.TrancheTradeLossBin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrancheTrade">
+              <PropertyRef Name="TTNo" />
+            </Principal>
+            <Dependent Role="TrancheTradeLossBins">
+              <PropertyRef Name="TTNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TTRevalInput_TrancheTrade">
+          <End Role="TrancheTrade" Type="CreditTradingModel.TrancheTrade" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TTRevalInput" Type="CreditTradingModel.TTRevalInput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrancheTrade">
+              <PropertyRef Name="TTNo" />
+            </Principal>
+            <Dependent Role="TTRevalInput">
+              <PropertyRef Name="TTNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TTRevalInput_TTList">
+          <End Role="TTList" Type="CreditTradingModel.TrancheTradeList" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TTRevalInput" Type="CreditTradingModel.TTRevalInput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TTList">
+              <PropertyRef Name="TTListName" />
+            </Principal>
+            <Dependent Role="TTRevalInput">
+              <PropertyRef Name="TTListName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Security_Master">
+          <Key>
+            <PropertyRef Name="CUSIP" />
+          </Key>
+          <Property Type="String" Name="CUSIP" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Security" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ISSUER" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="INTEXDealName" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Underwriter_Agent" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Listing" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TrusteeCode" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CMCode" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="CDOCollTotal" />
+          <Property Type="String" Name="ReinvPeriod" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NonCall" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Settlement" />
+          <Property Type="DateTime" Name="FinalMaturity" />
+          <Property Type="String" Name="WAL" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Wrap" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="DiscountMargin" />
+          <Property Type="String" Name="IndexRate" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StructureNotes" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityRatings" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityRatingsMoody" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityRatingsSP" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityRatingsFitch" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityHolding" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityNotes" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="SecurityAmortStatus" />
+          <Property Type="String" Name="SecurityClass" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CDOType" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityCollateral" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityParentStructure" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityQuality" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityStatus" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IntexCoverage" />
+          <Property Type="Boolean" Name="IntexPermission" />
+          <Property Type="DateTime" Name="IntexDate" />
+          <Property Type="String" Name="IntexBETRating" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DataLoc" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MIProvider" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Servicer" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PREPAY_RATE" />
+          <Property Type="String" Name="PREPAY_UNITS" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TICKER" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BBGMTK" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Dealname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ABSEvalCurveKey" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="RiskyBond" />
+        </EntityType>
+        <EntityType Name="CDOClass">
+          <Key>
+            <PropertyRef Name="CDOClassCode" />
+          </Key>
+          <Property Type="String" Name="CDOClassCode" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CDOClassDescription" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CDOClassSort" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CreditTradingModelStoreContainer" CdmEntityContainer="CreditTradingEntities">
+          <EntitySetMapping Name="Portfolios"><EntityTypeMapping TypeName="CreditTradingModel.Portfolio"><MappingFragment StoreEntitySet="Portfolio">
+            <ScalarProperty Name="PortfolioName" ColumnName="Portfolio" />
+            <ScalarProperty Name="PortfolioDescription" ColumnName="PortfolioDescription" />
+            <ScalarProperty Name="PortfolioType" ColumnName="PortfolioType" />
+            <ScalarProperty Name="PortfolioClass" ColumnName="PortfolioClass" />
+            <ScalarProperty Name="PortfolioMgrStatus" ColumnName="PortfolioMgrStatus" />
+            <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+            <ScalarProperty Name="ScheduledTermination" ColumnName="ScheduledTermination" />
+            <ScalarProperty Name="Currency" ColumnName="Currency" />
+            <ScalarProperty Name="Daycount" ColumnName="Daycount" />
+            <ScalarProperty Name="Roll" ColumnName="Roll" />
+            <ScalarProperty Name="Calendar" ColumnName="Calendar" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PortfolioCorrelations"><EntityTypeMapping TypeName="CreditTradingModel.PortfolioCorrelation"><MappingFragment StoreEntitySet="PortfolioCorrelation">
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="Portfolio" ColumnName="Portfolio" />
+            <ScalarProperty Name="Maturity" ColumnName="Maturity" />
+            <ScalarProperty Name="Point" ColumnName="Point" />
+            <ScalarProperty Name="Correlation" ColumnName="Correlation" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PortfolioLGDs"><EntityTypeMapping TypeName="CreditTradingModel.PortfolioLGD"><MappingFragment StoreEntitySet="PortfolioLGD">
+            <ScalarProperty Name="PortfolioName" ColumnName="Portfolio" />
+            <ScalarProperty Name="TICKER" ColumnName="TICKER" />
+            <ScalarProperty Name="CreditEventDate" ColumnName="CreditEventDate" />
+            <ScalarProperty Name="CreditEventSettlement" ColumnName="CreditEventSettlement" />
+            <ScalarProperty Name="CreditEvent" ColumnName="CreditEvent" />
+            <ScalarProperty Name="PortLGD" ColumnName="PortLGD" />
+            <ScalarProperty Name="PortRR" ColumnName="PortRR" />
+            <ScalarProperty Name="PortfolioPct" ColumnName="PortfolioPct" />
+            <ScalarProperty Name="CreditEventID" ColumnName="CreditEventID" />
+            <ScalarProperty Name="PortfolioLossNotes" ColumnName="PortfolioLossNotes" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="CreditUniverses"><EntityTypeMapping TypeName="CreditTradingModel.CreditUniverse"><MappingFragment StoreEntitySet="PortfolioList">
+            <ScalarProperty Name="CreditUniverseName" ColumnName="PortfolioList" />
+            <ScalarProperty Name="Batchable" ColumnName="Batchable" />
+            <ScalarProperty Name="BatchDate" ColumnName="BatchDate" />
+            <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="CreditUniverseLists"><EntityTypeMapping TypeName="CreditTradingModel.CreditUniverseList"><MappingFragment StoreEntitySet="PortfolioLists">
+            <ScalarProperty Name="CreditUniverseName" ColumnName="PortfolioList" />
+            <ScalarProperty Name="PortfolioName" ColumnName="Portfolio" />
+            <ScalarProperty Name="PortfolioCorrelation" ColumnName="PortfolioCorrelation" />
+            <ScalarProperty Name="PortfolioNumDraws" ColumnName="PortfolioNumDraws" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PortfolioSimBinHists"><EntityTypeMapping TypeName="CreditTradingModel.PortfolioSimBinHist"><MappingFragment StoreEntitySet="PortfolioSimBinHist">
+            <ScalarProperty Name="PortfolioName" ColumnName="Portfolio" />
+            <ScalarProperty Name="BinDate" ColumnName="BinDate" />
+            <ScalarProperty Name="BinType" ColumnName="BinType" />
+            <ScalarProperty Name="BinOrdinal" ColumnName="BinOrdinal" />
+            <ScalarProperty Name="BinX" ColumnName="BinX" />
+            <ScalarProperty Name="BinY" ColumnName="BinY" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PortfolioSimResults"><EntityTypeMapping TypeName="CreditTradingModel.PortfolioSimResult"><MappingFragment StoreEntitySet="PortfolioSimResult">
+            <ScalarProperty Name="SimDate" ColumnName="SimDate" />
+            <ScalarProperty Name="PortfolioName" ColumnName="Portfolio" />
+            <ScalarProperty Name="Tranche" ColumnName="Tranche" />
+            <ScalarProperty Name="PortCorrelationFactor" ColumnName="PortCorrelationFactor" />
+            <ScalarProperty Name="PortMeanLoss" ColumnName="PortMeanLoss" />
+            <ScalarProperty Name="PortStdDevLoss" ColumnName="PortStdDevLoss" />
+            <ScalarProperty Name="TrancheAttach" ColumnName="TrancheAttach" />
+            <ScalarProperty Name="TranchZScore" ColumnName="TranchZScore" />
+            <ScalarProperty Name="PortSpread" ColumnName="PortSpread" />
+            <ScalarProperty Name="PortNotional" ColumnName="PortNotional" />
+            <ScalarProperty Name="PortTradeCount" ColumnName="PortTradeCount" />
+            <ScalarProperty Name="PortMaxLoss" ColumnName="PortMaxLoss" />
+            <ScalarProperty Name="PortWARR" ColumnName="PortWARR" />
+            <ScalarProperty Name="WARRMin" ColumnName="WARRMin" />
+            <ScalarProperty Name="WARRMax" ColumnName="WARRMax" />
+            <ScalarProperty Name="TrancheWidth" ColumnName="TrancheWidth" />
+            <ScalarProperty Name="SimDuration" ColumnName="SimDuration" />
+            <ScalarProperty Name="SimCount" ColumnName="SimCount" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PortfolioSimulations"><EntityTypeMapping TypeName="CreditTradingModel.PortfolioSimulation"><MappingFragment StoreEntitySet="PortfolioSimulation">
+            <ScalarProperty Name="SimID" ColumnName="SimID" />
+            <ScalarProperty Name="PortfolioName" ColumnName="Portfolio" />
+            <ScalarProperty Name="RevalDate" ColumnName="RevalDate" />
+            <ScalarProperty Name="SimulationDate" ColumnName="SimulationDate" />
+            <ScalarProperty Name="Correlation" ColumnName="Correlation" />
+            <ScalarProperty Name="Draws" ColumnName="Draws" />
+            <ScalarProperty Name="SimType" ColumnName="SimType" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PortfolioSimulationBins"><EntityTypeMapping TypeName="CreditTradingModel.PortfolioSimulationBin"><MappingFragment StoreEntitySet="PortfolioSimulationBins">
+            <ScalarProperty Name="SimID" ColumnName="SimID" />
+            <ScalarProperty Name="BinType" ColumnName="BinType" />
+            <ScalarProperty Name="BinOrdinal" ColumnName="BinOrdinal" />
+            <ScalarProperty Name="BinX" ColumnName="BinX" />
+            <ScalarProperty Name="BinY" ColumnName="BinY" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PortfolioSimulationResults"><EntityTypeMapping TypeName="CreditTradingModel.PortfolioSimulationResult"><MappingFragment StoreEntitySet="PortfolioSimulationResult">
+            <ScalarProperty Name="SimID" ColumnName="SimID" />
+            <ScalarProperty Name="SimDate" ColumnName="SimDate" />
+            <ScalarProperty Name="Correlation" ColumnName="Correlation" />
+            <ScalarProperty Name="ExpectedLoss" ColumnName="ExpectedLoss" />
+            <ScalarProperty Name="StdDev" ColumnName="StdDev" />
+            <ScalarProperty Name="TrancheAttach" ColumnName="TrancheAttach" />
+            <ScalarProperty Name="TranchZScore" ColumnName="TranchZScore" />
+            <ScalarProperty Name="WAS" ColumnName="WAS" />
+            <ScalarProperty Name="PctWeight" ColumnName="PctWeight" />
+            <ScalarProperty Name="RECount" ColumnName="RECount" />
+            <ScalarProperty Name="MaxLoss" ColumnName="MaxLoss" />
+            <ScalarProperty Name="WARR" ColumnName="WARR" />
+            <ScalarProperty Name="WARRMin" ColumnName="WARRMin" />
+            <ScalarProperty Name="WARRMax" ColumnName="WARRMax" />
+            <ScalarProperty Name="TrancheWidth" ColumnName="TrancheWidth" />
+            <ScalarProperty Name="SimDuration" ColumnName="SimDuration" />
+            <ScalarProperty Name="Draws" ColumnName="Draws" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PortfolioSubstitutions"><EntityTypeMapping TypeName="CreditTradingModel.PortfolioSubstitution"><MappingFragment StoreEntitySet="PortfolioSubstitution">
+            <ScalarProperty Name="PortSubID" ColumnName="PortSubID" />
+            <ScalarProperty Name="SubDirection" ColumnName="SubDirection" />
+            <ScalarProperty Name="PortfolioName" ColumnName="Portfolio" />
+            <ScalarProperty Name="NB" ColumnName="NB" />
+            <ScalarProperty Name="TICKER" ColumnName="TICKER" />
+            <ScalarProperty Name="CCY" ColumnName="CCY" />
+            <ScalarProperty Name="SnrSub" ColumnName="SnrSub" />
+            <ScalarProperty Name="CounterParty" ColumnName="CounterParty" />
+            <ScalarProperty Name="NotionalAmount" ColumnName="NotionalAmount" />
+            <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+            <ScalarProperty Name="MaturityDate" ColumnName="MaturityDate" />
+            <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+            <ScalarProperty Name="DealRate" ColumnName="DealRate" />
+            <ScalarProperty Name="PayRecv" ColumnName="PayRecv" />
+            <ScalarProperty Name="Trader" ColumnName="Trader" />
+            <ScalarProperty Name="TradeStatus" ColumnName="TradeStatus" />
+            <ScalarProperty Name="MTMRate" ColumnName="MTMRate" />
+            <ScalarProperty Name="CreditCurveID" ColumnName="CreditCurveID" />
+            <ScalarProperty Name="UpfrontPayment" ColumnName="UpfrontPayment" />
+            <ScalarProperty Name="Recovery" ColumnName="Recovery" />
+            <ScalarProperty Name="IsFixedRR" ColumnName="IsFixedRR" />
+            <ScalarProperty Name="Completed" ColumnName="Completed" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PortfolioSubstitutionHeaders"><EntityTypeMapping TypeName="CreditTradingModel.PortfolioSubstitutionHeader"><MappingFragment StoreEntitySet="PortfolioSubstitutionHeader">
+            <ScalarProperty Name="PortSubID" ColumnName="PortSubID" />
+            <ScalarProperty Name="PortSubDate" ColumnName="PortSubDate" />
+            <ScalarProperty Name="PortSubDesc" ColumnName="PortSubDesc" />
+            <ScalarProperty Name="PortSubUser" ColumnName="PortSubUser" />
+            <ScalarProperty Name="FirmCode" ColumnName="FirmCode" />
+            <ScalarProperty Name="PortSubSubordChange" ColumnName="PortSubSubordChange" />
+            <ScalarProperty Name="PortSubSpreadChange" ColumnName="PortSubSpreadChange" />
+            <ScalarProperty Name="Completed" ColumnName="Completed" />
+            <ScalarProperty Name="IsCreditEvent" ColumnName="IsCreditEvent" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PortfolioTrades"><EntityTypeMapping TypeName="CreditTradingModel.PortfolioTrade"><MappingFragment StoreEntitySet="PortfolioTrades">
+            <ScalarProperty Name="PortfolioName" ColumnName="Portfolio" />
+            <ScalarProperty Name="NB" ColumnName="NB" />
+            <ScalarProperty Name="TICKER" ColumnName="TICKER" />
+            <ScalarProperty Name="CCY" ColumnName="CCY" />
+            <ScalarProperty Name="SnrSub" ColumnName="SnrSub" />
+            <ScalarProperty Name="CounterParty" ColumnName="CounterParty" />
+            <ScalarProperty Name="NotionalAmount" ColumnName="NotionalAmount" />
+            <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+            <ScalarProperty Name="MaturityDate" ColumnName="MaturityDate" />
+            <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+            <ScalarProperty Name="DealRate" ColumnName="DealRate" />
+            <ScalarProperty Name="PayRecv" ColumnName="PayRecv" />
+            <ScalarProperty Name="Trader" ColumnName="Trader" />
+            <ScalarProperty Name="TradeStatus" ColumnName="TradeStatus" />
+            <ScalarProperty Name="MTMRate" ColumnName="MTMRate" />
+            <ScalarProperty Name="CreditCurveID" ColumnName="CreditCurveID" />
+            <ScalarProperty Name="UpfrontPayment" ColumnName="UpfrontPayment" />
+            <ScalarProperty Name="Recovery" ColumnName="Recovery" />
+            <ScalarProperty Name="IsFixedRR" ColumnName="IsFixedRR" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PortfolioTranches"><EntityTypeMapping TypeName="CreditTradingModel.PortfolioTranche"><MappingFragment StoreEntitySet="PortfolioTranche">
+            <ScalarProperty Name="PortfolioName" ColumnName="Portfolio" />
+            <ScalarProperty Name="TrancheName" ColumnName="TrancheName" />
+            <ScalarProperty Name="TrancheNotional" ColumnName="TrancheNotional" />
+            <ScalarProperty Name="TrancheAttachment" ColumnName="TrancheAttachment" />
+            <ScalarProperty Name="TrancheWidth" ColumnName="TrancheWidth" />
+            <ScalarProperty Name="TrancheFee" ColumnName="TrancheFee" />
+            <ScalarProperty Name="TranchePremium" ColumnName="TranchePremium" />
+            <ScalarProperty Name="TrancheActive" ColumnName="TrancheActive" />
+            <ScalarProperty Name="TranchePremiumBasis" ColumnName="TranchePremiumBasis" />
+            <ScalarProperty Name="TrancheMaturity" ColumnName="TrancheMaturity" />
+            <ScalarProperty Name="TrancheRollPA" ColumnName="TrancheRollPA" />
+            <ScalarProperty Name="TrancheCCY" ColumnName="TrancheCCY" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PortfolioTrancheLossBins"><EntityTypeMapping TypeName="CreditTradingModel.PortfolioTrancheLossBin"><MappingFragment StoreEntitySet="PortfolioTrancheLossBins">
+            <ScalarProperty Name="SimDate" ColumnName="SimDate" />
+            <ScalarProperty Name="PortfolioName" ColumnName="Portfolio" />
+            <ScalarProperty Name="TrancheName" ColumnName="TrancheName" />
+            <ScalarProperty Name="ForwardDate" ColumnName="ForwardDate" />
+            <ScalarProperty Name="DiscountFactor" ColumnName="DiscountFactor" />
+            <ScalarProperty Name="CumulativeLoss" ColumnName="CumulativeLoss" />
+            <ScalarProperty Name="MarginalLoss" ColumnName="MarginalLoss" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PortfolioTypes"><EntityTypeMapping TypeName="CreditTradingModel.PortfolioType"><MappingFragment StoreEntitySet="PortfolioType">
+            <ScalarProperty Name="Portfolio_Type" ColumnName="Portfolio Type" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PortfolioWARves"><EntityTypeMapping TypeName="CreditTradingModel.PortfolioWARF"><MappingFragment StoreEntitySet="PortfolioWARF">
+            <ScalarProperty Name="EvalDate" ColumnName="EvalDate" />
+            <ScalarProperty Name="PortfolioName" ColumnName="Portfolio" />
+            <ScalarProperty Name="Agency" ColumnName="Agency" />
+            <ScalarProperty Name="WARF" ColumnName="WARF" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PortfolioWAS"><EntityTypeMapping TypeName="CreditTradingModel.PortfolioWA"><MappingFragment StoreEntitySet="PortfolioWAS">
+            <ScalarProperty Name="EvalDate" ColumnName="EvalDate" />
+            <ScalarProperty Name="PortfolioName" ColumnName="Portfolio" />
+            <ScalarProperty Name="WAS" ColumnName="WAS" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TrancheTrades"><EntityTypeMapping TypeName="CreditTradingModel.TrancheTrade"><MappingFragment StoreEntitySet="TrancheTrade">
+            <ScalarProperty Name="TTNo" ColumnName="TTNo" />
+            <ScalarProperty Name="PortfolioName" ColumnName="Portfolio" />
+            <ScalarProperty Name="TrancheName" ColumnName="TrancheName" />
+            <ScalarProperty Name="Notional" ColumnName="Notional" />
+            <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+            <ScalarProperty Name="SettlementDate" ColumnName="SettlementDate" />
+            <ScalarProperty Name="Maturity" ColumnName="Maturity" />
+            <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+            <ScalarProperty Name="Width" ColumnName="Width" />
+            <ScalarProperty Name="Premium" ColumnName="Premium" />
+            <ScalarProperty Name="PremBasis" ColumnName="PremBasis" />
+            <ScalarProperty Name="PremPmtPA" ColumnName="PremPmtPA" />
+            <ScalarProperty Name="Ratings" ColumnName="Ratings" />
+            <ScalarProperty Name="Fee" ColumnName="Fee" />
+            <ScalarProperty Name="CCY" ColumnName="CCY" />
+            <ScalarProperty Name="IsFunded" ColumnName="IsFunded" />
+            <ScalarProperty Name="SecurityID" ColumnName="SecurityID" />
+            <ScalarProperty Name="Orig_Notional" ColumnName="Orig_Notional" />
+            <ScalarProperty Name="Orig_Attach" ColumnName="Orig_Attach" />
+            <ScalarProperty Name="Orig_Width" ColumnName="Orig_Width" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TrancheTradeLossBins"><EntityTypeMapping TypeName="CreditTradingModel.TrancheTradeLossBin"><MappingFragment StoreEntitySet="TrancheTradeLossBins">
+            <ScalarProperty Name="SimDate" ColumnName="SimDate" />
+            <ScalarProperty Name="TTNo" ColumnName="TTNo" />
+            <ScalarProperty Name="ForwardDate" ColumnName="ForwardDate" />
+            <ScalarProperty Name="DiscountFactor" ColumnName="DiscountFactor" />
+            <ScalarProperty Name="CumulativeLoss" ColumnName="CumulativeLoss" />
+            <ScalarProperty Name="MarginalLoss" ColumnName="MarginalLoss" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TrancheTradeLists"><EntityTypeMapping TypeName="CreditTradingModel.TrancheTradeList"><MappingFragment StoreEntitySet="TTList">
+            <ScalarProperty Name="TTListName" ColumnName="TTList" />
+            <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TTPriceHists"><EntityTypeMapping TypeName="CreditTradingModel.TTPriceHist"><MappingFragment StoreEntitySet="TTPriceHist">
+            <ScalarProperty Name="SimID" ColumnName="SimID" />
+            <ScalarProperty Name="TTNo" ColumnName="TTNo" />
+            <ScalarProperty Name="Portfolio" ColumnName="Portfolio" />
+            <ScalarProperty Name="Notional" ColumnName="Notional" />
+            <ScalarProperty Name="Attach" ColumnName="Attach" />
+            <ScalarProperty Name="Width" ColumnName="Width" />
+            <ScalarProperty Name="UpfrontFee" ColumnName="UpfrontFee" />
+            <ScalarProperty Name="Premium" ColumnName="Premium" />
+            <ScalarProperty Name="ParPremium" ColumnName="ParPremium" />
+            <ScalarProperty Name="Maturity" ColumnName="Maturity" />
+            <ScalarProperty Name="CCY" ColumnName="CCY" />
+            <ScalarProperty Name="pWAS" ColumnName="pWAS" />
+            <ScalarProperty Name="pCredits" ColumnName="pCredits" />
+            <ScalarProperty Name="pCorrelation" ColumnName="pCorrelation" />
+            <ScalarProperty Name="TranchePrice" ColumnName="TranchePrice" />
+            <ScalarProperty Name="SimElapsed" ColumnName="SimElapsed" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TTRevalInputs"><EntityTypeMapping TypeName="CreditTradingModel.TTRevalInput"><MappingFragment StoreEntitySet="TTRevalInput">
+            <ScalarProperty Name="TTListName" ColumnName="TTList" />
+            <ScalarProperty Name="TTNo" ColumnName="TTNo" />
+            <ScalarProperty Name="RevalDate" ColumnName="RevalDate" />
+            <ScalarProperty Name="Correlation" ColumnName="Correlation" />
+            <ScalarProperty Name="Draws" ColumnName="Draws" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Security_Masters">
+            <EntityTypeMapping TypeName="CreditTradingModel.Security_Master">
+              <MappingFragment StoreEntitySet="Security Master">
+                <ScalarProperty Name="RiskyBond" ColumnName="RiskyBond" />
+                <ScalarProperty Name="ABSEvalCurveKey" ColumnName="ABSEvalCurveKey" />
+                <ScalarProperty Name="Dealname" ColumnName="Dealname" />
+                <ScalarProperty Name="BBGMTK" ColumnName="BBGMTK" />
+                <ScalarProperty Name="TICKER" ColumnName="TICKER" />
+                <ScalarProperty Name="PREPAY_UNITS" ColumnName="PREPAY_UNITS" />
+                <ScalarProperty Name="PREPAY_RATE" ColumnName="PREPAY_RATE" />
+                <ScalarProperty Name="Servicer" ColumnName="Servicer" />
+                <ScalarProperty Name="MIProvider" ColumnName="MIProvider" />
+                <ScalarProperty Name="DataLoc" ColumnName="DataLoc" />
+                <ScalarProperty Name="IntexBETRating" ColumnName="IntexBETRating" />
+                <ScalarProperty Name="IntexDate" ColumnName="IntexDate" />
+                <ScalarProperty Name="IntexPermission" ColumnName="IntexPermission" />
+                <ScalarProperty Name="IntexCoverage" ColumnName="IntexCoverage" />
+                <ScalarProperty Name="SecurityStatus" ColumnName="SecurityStatus" />
+                <ScalarProperty Name="SecurityQuality" ColumnName="SecurityQuality" />
+                <ScalarProperty Name="SecurityParentStructure" ColumnName="SecurityParentStructure" />
+                <ScalarProperty Name="SecurityCollateral" ColumnName="SecurityCollateral" />
+                <ScalarProperty Name="CDOType" ColumnName="CDOType" />
+                <ScalarProperty Name="SecurityClass" ColumnName="SecurityClass" />
+                <ScalarProperty Name="SecurityAmortStatus" ColumnName="SecurityAmortStatus" />
+                <ScalarProperty Name="SecurityNotes" ColumnName="SecurityNotes" />
+                <ScalarProperty Name="SecurityHolding" ColumnName="SecurityHolding" />
+                <ScalarProperty Name="SecurityRatingsFitch" ColumnName="SecurityRatingsFitch" />
+                <ScalarProperty Name="SecurityRatingsSP" ColumnName="SecurityRatingsSP" />
+                <ScalarProperty Name="SecurityRatingsMoody" ColumnName="SecurityRatingsMoody" />
+                <ScalarProperty Name="SecurityRatings" ColumnName="SecurityRatings" />
+                <ScalarProperty Name="StructureNotes" ColumnName="StructureNotes" />
+                <ScalarProperty Name="IndexRate" ColumnName="IndexRate" />
+                <ScalarProperty Name="DiscountMargin" ColumnName="DiscountMargin" />
+                <ScalarProperty Name="Wrap" ColumnName="Wrap" />
+                <ScalarProperty Name="WAL" ColumnName="WAL" />
+                <ScalarProperty Name="FinalMaturity" ColumnName="FinalMaturity" />
+                <ScalarProperty Name="Settlement" ColumnName="Settlement" />
+                <ScalarProperty Name="NonCall" ColumnName="NonCall" />
+                <ScalarProperty Name="ReinvPeriod" ColumnName="ReinvPeriod" />
+                <ScalarProperty Name="CDOCollTotal" ColumnName="CDOCollTotal" />
+                <ScalarProperty Name="CMCode" ColumnName="CMCode" />
+                <ScalarProperty Name="TrusteeCode" ColumnName="TrusteeCode" />
+                <ScalarProperty Name="Listing" ColumnName="Listing" />
+                <ScalarProperty Name="Underwriter_Agent" ColumnName="Underwriter-Agent" />
+                <ScalarProperty Name="INTEXDealName" ColumnName="INTEXDealName" />
+                <ScalarProperty Name="ISSUER" ColumnName="ISSUER" />
+                <ScalarProperty Name="Security" ColumnName="Security" />
+                <ScalarProperty Name="CUSIP" ColumnName="CUSIP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CDOClasses">
+            <EntityTypeMapping TypeName="CreditTradingModel.CDOClass">
+              <MappingFragment StoreEntitySet="CDOClass">
+                <ScalarProperty Name="CDOClassSort" ColumnName="CDOClassSort" />
+                <ScalarProperty Name="CDOClassDescription" ColumnName="CDOClassDescription" />
+                <ScalarProperty Name="CDOClassCode" ColumnName="CDOClassCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="CreditTradingModel">
+        <EntityTypeShape EntityType="CreditTradingModel.Portfolio" Width="1.5" PointX="0.75" PointY="26" Height="4.7149055989583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.PortfolioCorrelation" Width="1.875" PointX="0.75" PointY="0.75" Height="1.7566536458333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.PortfolioLGD" Width="1.5" PointX="3" PointY="7.625" Height="2.7427376302083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.CreditUniverse" Width="2" PointX="0.5" PointY="31.5" Height="1.7566536458333353" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.CreditUniverseList" Width="1.875" PointX="3" PointY="29.375" Height="1.9210009765625031" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.PortfolioSimBinHist" Width="1.875" PointX="3" PointY="13.75" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.PortfolioSimResult" Width="1.875" PointX="3" PointY="16.625" Height="4.0575162760416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.PortfolioSimulation" Width="1.75" PointX="3" PointY="25.5" Height="2.7427376302083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.PortfolioSimulationBin" Width="2" PointX="5.25" PointY="21.375" Height="1.921000976562496" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.PortfolioSimulationResult" Width="1.5" PointX="5.25" PointY="24" Height="3.8931689453125031" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.PortfolioSubstitution" Width="1.875" PointX="8" PointY="25.875" Height="4.8792529296875031" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.PortfolioSubstitutionHeader" Width="2" PointX="5.75" PointY="18" Height="2.5783902994791745" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.PortfolioTrade" Width="1.5" PointX="3" PointY="38.75" Height="4.2218636067708388" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.PortfolioTranche" Width="1.5" PointX="3" PointY="43.75" Height="3.2357796223958388" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.PortfolioTrancheLossBin" Width="2.875" PointX="5.25" PointY="35.25" Height="2.414042968749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.PortfolioType" Width="1.5" PointX="2.75" PointY="0.75" Height="1.0992643229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.PortfolioWARF" Width="1.5" PointX="3" PointY="47.75" Height="1.7566536458333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.PortfolioWA" Width="1.5" PointX="3" PointY="50.25" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.TrancheTrade" Width="1.5" PointX="3" PointY="52.625" Height="4.7149055989583388" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.TrancheTradeLossBin" Width="2.375" PointX="5.25" PointY="53.875" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.TrancheTradeList" Width="2" PointX="3" PointY="58.25" Height="1.4279589843750102" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.TTPriceHist" Width="1.5" PointX="5.25" PointY="28.75" Height="3.7288216145833246" IsExpanded="true" />
+        <EntityTypeShape EntityType="CreditTradingModel.TTRevalInput" Width="1.5" PointX="5.25" PointY="50.875" Height="2.0853483072916674" IsExpanded="true" />
+        <AssociationConnector Association="CreditTradingModel.FK_PortfolioLists_Portfolio" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="30.044952799479166" />
+          <ConnectorPoint PointX="2.6822916666666665" PointY="30.044952799479166" />
+          <ConnectorPoint PointX="2.8489583333333335" PointY="30.044952799479166" />
+          <ConnectorPoint PointX="3" PointY="30.044952799479166" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_PortfolioLoss_Portfolio" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="26" />
+          <ConnectorPoint PointX="1.5" PointY="8.9963688151041659" />
+          <ConnectorPoint PointX="3" PointY="8.9963688151041659" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_PortfolioSimBinHist_Portfolio" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.9062525" PointY="26" />
+          <ConnectorPoint PointX="1.9062525" PointY="14.792674153645834" />
+          <ConnectorPoint PointX="3" PointY="14.792674153645834" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_PortfolioSimResult_Portfolio" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.0937475" PointY="26" />
+          <ConnectorPoint PointX="1.0937475" PointY="18.653758138020834" />
+          <ConnectorPoint PointX="1.4166666666666667" PointY="18.653758138020834" />
+          <ConnectorPoint PointX="1.5833333333333333" PointY="18.653758138020834" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="18.653758138020834" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="18.653758138020834" />
+          <ConnectorPoint PointX="3" PointY="18.653758138020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_PortfolioSimulation_Portfolio" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="27.121368815104166" />
+          <ConnectorPoint PointX="3" PointY="27.121368815104166" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_PortfolioSubstitution_Portfolio" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="28.505449283854173" />
+          <ConnectorPoint PointX="4.9256171322351419" PointY="28.505449283854173" />
+          <ConnectorPoint PointX="5.0922837989018079" PointY="28.505449283854173" />
+          <ConnectorPoint PointX="8" PointY="28.505449283854173" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_PortfolioTranche_Portfolio" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="30.714905598958332" />
+          <ConnectorPoint PointX="1.5" PointY="31.25" />
+          <ConnectorPoint PointX="2.75" PointY="31.25" />
+          <ConnectorPoint PointX="2.75" PointY="45.367889811197919" />
+          <ConnectorPoint PointX="3" PointY="45.367889811197919" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_PortfolioTrancheLossBins_Portfolio" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.9062519999999998" PointY="30.714905598958332" />
+          <ConnectorPoint PointX="1.9062519999999998" PointY="31.21875" />
+          <ConnectorPoint PointX="2.6510416666666665" PointY="31.21875" />
+          <ConnectorPoint PointX="2.8489583333333335" PointY="31.21875" />
+          <ConnectorPoint PointX="2.875" PointY="31.21875" />
+          <ConnectorPoint PointX="2.875" PointY="36.457021484375" />
+          <ConnectorPoint PointX="5.25" PointY="36.457021484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_PortfolioWARF_Portfolio" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.093748" PointY="30.714905598958332" />
+          <ConnectorPoint PointX="1.093748" PointY="31.1875" />
+          <ConnectorPoint PointX="2.78125" PointY="31.1875" />
+          <ConnectorPoint PointX="2.78125" PointY="48.628326822916669" />
+          <ConnectorPoint PointX="3" PointY="48.628326822916669" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_PortfolioWAS_Portfolio" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.109378" PointY="30.714905598958332" />
+          <ConnectorPoint PointX="2.109378" PointY="31.15625" />
+          <ConnectorPoint PointX="2.71875" PointY="31.15625" />
+          <ConnectorPoint PointX="2.71875" PointY="51.046153157552084" />
+          <ConnectorPoint PointX="3" PointY="51.046153157552084" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_TrancheTrade_Portfolio" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="29.270660807291666" />
+          <ConnectorPoint PointX="2.765625" PointY="29.270660807291666" />
+          <ConnectorPoint PointX="2.765625" PointY="52.25" />
+          <ConnectorPoint PointX="3.75" PointY="52.25" />
+          <ConnectorPoint PointX="3.75" PointY="52.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.PortfolioTrades_FK00" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.7031260000000001" PointY="30.714905598958332" />
+          <ConnectorPoint PointX="1.7031260000000001" PointY="31.125" />
+          <ConnectorPoint PointX="1.8229186666666666" PointY="31.125" />
+          <ConnectorPoint PointX="1.9895853333333331" PointY="31.125" />
+          <ConnectorPoint PointX="2.734375" PointY="31.125" />
+          <ConnectorPoint PointX="2.734375" PointY="40.860931803385419" />
+          <ConnectorPoint PointX="3" PointY="40.860931803385419" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_PortfolioLists_PortfolioList" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.5" PointY="31.5" />
+          <ConnectorPoint PointX="2.6415915702606929" PointY="31.442230915879673" />
+          <ConnectorPoint PointX="2.9521584297393071" PointY="31.3155202437883" />
+          <ConnectorPoint PointX="3" PointY="31.296000976562503" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_PortfolioSimulationBins_PortfolioSimulation" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.875" PointY="25.5" />
+          <ConnectorPoint PointX="3.875" PointY="22.335500488281248" />
+          <ConnectorPoint PointX="5.25" PointY="22.335500488281248" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_PortfolioSimulationResult_PortfolioSimulation" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.75" PointY="26.696584472656252" />
+          <ConnectorPoint PointX="5.25" PointY="26.696584472656252" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_TTPriceHist_PortfolioSimulation" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.75" PointY="28.242737630208332" />
+          <ConnectorPoint PointX="5.25" PointY="28.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_PortfolioSubstitution_PortfolioSubstitutionHeader" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.53125" PointY="20.578390299479175" />
+          <ConnectorPoint PointX="7.53125" PointY="28.199306614583342" />
+          <ConnectorPoint PointX="8" PointY="28.199306614583342" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_PortfolioTrancheLossBins_PortfolioTranche" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="45.367889811197919" />
+          <ConnectorPoint PointX="6.6875" PointY="45.367889811197919" />
+          <ConnectorPoint PointX="6.6875" PointY="37.664042968749996" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_TrancheTradeLossBins_TrancheTrade" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="54.917674153645834" />
+          <ConnectorPoint PointX="4.697916666666667" PointY="54.917674153645834" />
+          <ConnectorPoint PointX="4.864583333333333" PointY="54.917674153645834" />
+          <ConnectorPoint PointX="5.25" PointY="54.917674153645834" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_TTRevalInput_TrancheTrade" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="52.792674153645834" />
+          <ConnectorPoint PointX="4.697916666666667" PointY="52.792674153645834" />
+          <ConnectorPoint PointX="4.864583333333333" PointY="52.792674153645834" />
+          <ConnectorPoint PointX="5.25" PointY="52.792674153645834" />
+        </AssociationConnector>
+        <AssociationConnector Association="CreditTradingModel.FK_TTRevalInput_TTList" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.78125" PointY="58.25" />
+          <ConnectorPoint PointX="4.78125" PointY="52.077403157552084" />
+          <ConnectorPoint PointX="5.25" PointY="52.077403157552084" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="CreditTradingModel.Security_Master" Width="2" PointX="5.5" PointY="0.75" Height="9.67234375" />
+        <EntityTypeShape EntityType="CreditTradingModel.CDOClass" Width="1.5" PointX="0.75" PointY="3.75" Height="1.4279589843750102" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

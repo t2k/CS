@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DocStoreModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DocStoreModelStoreContainer">
+          <EntitySet Name="docStore" EntityType="DocStoreModel.Store.docStore" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="docStore">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="filename" Type="nvarchar" MaxLength="256" />
+          <Property Name="location" Type="nvarchar" MaxLength="64" />
+          <Property Name="shortname" Type="nvarchar" MaxLength="24" />
+          <Property Name="userid" Type="nvarchar" MaxLength="12" />
+          <Property Name="timestamp" Type="datetimeoffset" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DocStoreModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="docStoreEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="docStores" EntityType="DocStoreModel.docStore" />
+        </EntityContainer>
+        <EntityType Name="docStore">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="filename" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="location" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Name="shortname" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="userid" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="timestamp" Type="DateTimeOffset" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DocStoreModelStoreContainer" CdmEntityContainer="docStoreEntities">
+          <EntitySetMapping Name="docStores"><EntityTypeMapping TypeName="DocStoreModel.docStore"><MappingFragment StoreEntitySet="docStore">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="filename" ColumnName="filename" />
+            <ScalarProperty Name="location" ColumnName="location" />
+            <ScalarProperty Name="shortname" ColumnName="shortname" />
+            <ScalarProperty Name="userid" ColumnName="userid" />
+            <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="FileUploadModel">
+        <EntityTypeShape EntityType="DocStoreModel.docStore" Width="1.5" PointX="0.875" PointY="0.75" Height="2.172587890625" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
